@@ -1,0 +1,111 @@
+C:\Users\yllin\Desktop\DIP-02(C#)-1D\DIP\bin\x86\Debug\DIP.exe
+C:\Users\yllin\Desktop\DIP-02(C#)-1D\DIP\bin\x86\Debug\DIP.pdb
+C:\Users\yllin\Desktop\DIP-02(C#)-1D\DIP\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yllin\Desktop\DIP-02(C#)-1D\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Users\yllin\Desktop\DIP-02(C#)-1D\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Users\yllin\Desktop\DIP-02(C#)-1D\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.Cache
+C:\Users\yllin\Desktop\DIP-02(C#)-1D\DIP\obj\x86\Debug\DIP.exe
+C:\Users\yllin\Desktop\DIP-02(C#)-1D\DIP\obj\x86\Debug\DIP.pdb
+C:\Users\yllin\Desktop\DIP_test\DIP\DIP-02(C#)-1D using ANSI  C dll\DIP\obj\x86\Debug\DIP.exe
+C:\Users\yllin\Desktop\DIP_test\DIP\DIP-02(C#)-1D using ANSI  C dll\DIP\obj\x86\Debug\DIP.pdb
+C:\Users\yllin\Desktop\DIP-01(C#)( using ANSI  C dll)\DIP\obj\x86\Debug\DIP.exe
+C:\Users\yllin\Desktop\DIP-01(C#)( using ANSI  C dll)\DIP\obj\x86\Debug\DIP.pdb
+C:\Users\yllin\Desktop\DIP-01(C#)( using ANSI  C dll)\DIP\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yllin\Desktop\DIP-01(C#)( using ANSI  C dll)\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Users\yllin\Desktop\DIP-01(C#)( using ANSI  C dll)\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Users\yllin\Desktop\DIP-01(C#)( using ANSI  C dll)\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.Cache
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.exe
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.Cache
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.exe
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.pdb
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.pdb
+C:\Users\yllin\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.MSForm.resources
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.exe
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.pdb
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.exe
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.pdb
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.MSForm.resources
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.Cache
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.exe
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.pdb
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.exe
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.pdb
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.DIPSample.resources
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.MSForm.resources
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+I:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.Cache
+G:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.exe
+G:\17.baseline_program\DIP\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.pdb
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.exe
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.pdb
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.exe
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.pdb
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.DIPSample.resources
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.MSForm.resources
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+G:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.Cache
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.exe
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.pdb
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.exe
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.pdb
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.DIPSample.resources
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.MSForm.resources
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+F:\11.Courses\103(1)\影像處理\Code\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.exe.config
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.exe
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\bin\x86\Debug\DIP.pdb
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.MSForm.resources
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.cache
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.exe
+C:\Users\User\Desktop\DIP-MDI(C#) - Ver01\DIP\obj\x86\Debug\DIP.pdb
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.exe.config
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.exe
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.pdb
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.AssemblyReference.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.MSForm.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.CoreCompileInputs.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.exe
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.pdb
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\HW1\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP_proc.dll
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP_proc.dll
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.exe.config
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.exe
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.pdb
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.AssemblyReference.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.MSForm.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.CoreCompileInputs.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.exe
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W4\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.pdb
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP_proc.dll
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.exe.config
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.exe
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\bin\x86\Debug\DIP.pdb
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.AssemblyReference.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.MSForm.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.CoreCompileInputs.cache
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.exe
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.pdb
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.linear_brightness_transfer.resources
+C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.Histogram_equalization.resources
