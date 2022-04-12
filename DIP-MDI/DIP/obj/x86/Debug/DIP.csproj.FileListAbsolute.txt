@@ -109,3 +109,17 @@ C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\D
 C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.pdb
 C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.linear_brightness_transfer.resources
 C:\Users\BNO ECHO\Documents\選修-數位影像處理導論\W5\DIP-MDI\DIP-MDI\DIP\obj\x86\Debug\DIP.Histogram_equalization.resources
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\bin\x86\Debug\DIP_proc.dll
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\bin\x86\Debug\DIP.exe.config
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\bin\x86\Debug\DIP.exe
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\bin\x86\Debug\DIP.pdb
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.AssemblyReference.cache
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.DIPSample.resources
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.Histogram_equalization.resources
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.linear_brightness_transfer.resources
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.MSForm.resources
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.Properties.Resources.resources
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.GenerateResource.cache
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.CoreCompileInputs.cache
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.exe
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.pdb

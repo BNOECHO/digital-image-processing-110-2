@@ -77,7 +77,7 @@ namespace DIP
                         return pBitmap;
                 }
 
-                private int[] dyn_bmp2array(Bitmap myBitmap, ref int ByteDepth, ref PixelFormat pixelFormat, ref ColorPalette palette,ref int Width,ref int Height)
+                private int[] dyn_bmp2array(Bitmap myBitmap, ref int ByteDepth, ref PixelFormat pixelFormat, ref ColorPalette palette, ref int Width, ref int Height)
                 {
                         Width = myBitmap.Width;
                         Height = myBitmap.Height;
@@ -148,7 +148,7 @@ namespace DIP
                         return myBitmap;
                 }
 
-                private static Bitmap dyn_array2bmp(int[] ImgData, int ByteDepth, PixelFormat pixelFormat, ColorPalette palette,int width,int height)
+                private static Bitmap dyn_array2bmp(int[] ImgData, int ByteDepth, PixelFormat pixelFormat, ColorPalette palette, int width, int height)
                 {
                         int Width = width;
                         int Height = height;
@@ -192,23 +192,26 @@ namespace DIP
                         int[] g;
                         int PB_Width = 0;
                         int PB_Height = 0;
-                        foreach (MSForm cF in MdiChildren)
+                        foreach (Object Mdic in MdiChildren)
                         {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
                                 if (cF.Focused)
                                 {
                                         int ByteDepth = 0;
                                         PixelFormat pixelFormat = new PixelFormat();
                                         ColorPalette palette = null;
-                                        f = dyn_bmp2array(cF.pBitmap,ref ByteDepth,ref pixelFormat,ref palette,ref PB_Width,ref PB_Height);
+                                        f = dyn_bmp2array(cF.pBitmap, ref ByteDepth, ref pixelFormat, ref palette, ref PB_Width, ref PB_Height);
                                         g = new int[w * h * ByteDepth];
                                         unsafe
                                         {
                                                 fixed (int* f0 = f) fixed (int* g0 = g)
                                                 {
-                                                        encode_gray(f0, w, h, g0,ByteDepth);
+                                                        encode_gray(f0, w, h, g0, ByteDepth);
                                                 }
                                         }
-                                        NpBitmap = dyn_array2bmp(f,ByteDepth,pixelFormat,palette);
+                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette);
                                         MSForm childForm = new MSForm();
                                         childForm.MdiParent = this;
                                         childForm.pf1 = stStripLabel;
@@ -225,16 +228,19 @@ namespace DIP
                 {
                         int[] f;
                         int[] g;
-                        int PB_Width=0;
-                        int PB_Height=0;
-                        foreach (MSForm cF in MdiChildren)
+                        int PB_Width = 0;
+                        int PB_Height = 0;
+                        foreach (Object Mdic in MdiChildren)
                         {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
                                 if (cF.Focused)
                                 {
                                         int ByteDepth = 0;
                                         PixelFormat pixelFormat = new PixelFormat();
                                         ColorPalette palette = null;
-                                        f = dyn_bmp2array(cF.pBitmap, ref ByteDepth, ref pixelFormat, ref palette,ref PB_Width,ref PB_Height);
+                                        f = dyn_bmp2array(cF.pBitmap, ref ByteDepth, ref pixelFormat, ref palette, ref PB_Width, ref PB_Height);
                                         g = new int[w * h * ByteDepth];
                                         unsafe
                                         {
@@ -243,7 +249,7 @@ namespace DIP
                                                         encode_Hflip(f0, w, h, g0, ByteDepth);
                                                 }
                                         }
-                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette,PB_Width,PB_Height);
+                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette, PB_Width, PB_Height);
                                         MSForm childForm = new MSForm();
                                         childForm.MdiParent = this;
                                         childForm.pf1 = stStripLabel;
@@ -266,14 +272,17 @@ namespace DIP
                         int[] g;
                         int PB_Width = 0;
                         int PB_Height = 0;
-                        foreach (MSForm cF in MdiChildren)
+                        foreach (Object Mdic in MdiChildren)
                         {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
                                 if (cF.Focused)
                                 {
                                         int ByteDepth = 0;
                                         PixelFormat pixelFormat = new PixelFormat();
                                         ColorPalette palette = null;
-                                        f = dyn_bmp2array(cF.pBitmap, ref ByteDepth, ref pixelFormat, ref palette,ref PB_Width,ref PB_Height);
+                                        f = dyn_bmp2array(cF.pBitmap, ref ByteDepth, ref pixelFormat, ref palette, ref PB_Width, ref PB_Height);
                                         g = new int[w * h * ByteDepth];
                                         unsafe
                                         {
@@ -282,7 +291,7 @@ namespace DIP
                                                         encode_Vflip(f0, w, h, g0, ByteDepth);
                                                 }
                                         }
-                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette,PB_Width,PB_Height);
+                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette, PB_Width, PB_Height);
                                         MSForm childForm = new MSForm();
                                         childForm.MdiParent = this;
                                         childForm.pf1 = stStripLabel;
@@ -296,19 +305,22 @@ namespace DIP
 
                 private void saveToolStripMenuItem_Click(object sender, EventArgs e)
                 {
-                        
-                                foreach (MSForm cF in MdiChildren)
+
+                        foreach (Object Mdic in MdiChildren)
+                        {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
+                                if (cF.Focused)
                                 {
-                                        if (cF.Focused)
+                                        saveFileDialog1.Filter = "Bitmap files (*.bmp)|*.bmp";
+                                        saveFileDialog1.FileName = "untitled";
+                                        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                                         {
-                                                saveFileDialog1.Filter = "Bitmap files (*.bmp)|*.bmp";
-                                                saveFileDialog1.FileName = "untitled";
-                                                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                                                {
-                                                        cF.pBitmap.Save(saveFileDialog1.FileName);
-                                                }
+                                                cF.pBitmap.Save(saveFileDialog1.FileName);
                                         }
                                 }
+                        }
                 }
 
                 private void _90degreeFlipToolStripMenuItem_Click(object sender, EventArgs e)
@@ -317,8 +329,11 @@ namespace DIP
                         int[] g;
                         int PB_Width = 0;
                         int PB_Height = 0;
-                        foreach (MSForm cF in MdiChildren)
+                        foreach (Object Mdic in MdiChildren)
                         {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
                                 if (cF.Focused)
                                 {
                                         int ByteDepth = 0;
@@ -351,8 +366,11 @@ namespace DIP
                         int[] g;
                         int PB_Width = 0;
                         int PB_Height = 0;
-                        foreach (MSForm cF in MdiChildren)
+                        foreach (Object Mdic in MdiChildren)
                         {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
                                 if (cF.Focused)
                                 {
                                         int ByteDepth = 0;
@@ -367,7 +385,7 @@ namespace DIP
                                                         encode_270flip(f0, w, h, g0, ByteDepth);
                                                 }
                                         }
-                                        
+
                                         NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette, PB_Height, PB_Width);
                                         MSForm childForm = new MSForm();
                                         childForm.MdiParent = this;
@@ -383,20 +401,23 @@ namespace DIP
                 private void linearBrightnessTransferToolStripMenuItem_Click(object sender, EventArgs e)
                 {
 
-                        foreach (MSForm cF in MdiChildren)
+                        foreach (Object Mdic in MdiChildren)
                         {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
                                 if (cF.Focused)
                                 {
                                         linear_brightness_transfer newform = new linear_brightness_transfer(cF.pBitmap);
                                         newform.MdiParent = this;
                                         newform.button1.Click += delegate
-                                          {
-                                                  MSForm childForm = new MSForm();
-                                                  childForm.pf1 = stStripLabel;
-                                                  childForm.pBitmap = newform.res_Bitmap;
-                                                  childForm.MdiParent = this;
-                                                  childForm.Show();
-                                          };
+                                        {
+                                                MSForm childForm = new MSForm();
+                                                childForm.pf1 = stStripLabel;
+                                                childForm.pBitmap = newform.res_Bitmap;
+                                                childForm.MdiParent = this;
+                                                childForm.Show();
+                                        };
                                         newform.Show();
 
                                         break;
@@ -406,8 +427,11 @@ namespace DIP
 
                 private void histogramEqualizationToolStripMenuItem_Click(object sender, EventArgs e)
                 {
-                        foreach (MSForm cF in MdiChildren)
+                        foreach (Object Mdic in MdiChildren)
                         {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
                                 if (cF.Focused)
                                 {
                                         Histogram_equalization newform = new Histogram_equalization(cF.pBitmap);
@@ -428,7 +452,7 @@ namespace DIP
 
                 private void fileToolStripMenuItem_Click(object sender, EventArgs e)
                 {
-           
+
                 }
 
         }
