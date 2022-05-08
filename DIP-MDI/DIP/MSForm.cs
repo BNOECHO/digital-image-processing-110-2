@@ -12,8 +12,8 @@ namespace DIP
 {
     public partial class MSForm : Form
     {
-        internal Bitmap pBitmap;
-        internal ToolStripStatusLabel pf1;
+        internal Bitmap pBitmap=new Bitmap(255,255);
+        internal ToolStripStatusLabel pf1 = new ToolStripStatusLabel();
         int w, h;
 
         public MSForm()
