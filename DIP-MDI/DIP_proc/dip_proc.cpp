@@ -2,7 +2,7 @@
 //
 #include "pch.h"
 #include "image_lib.h"
-//#include<map>
+
 
 
 extern "C" {
@@ -188,6 +188,37 @@ extern "C" {
 				 }
 			 }
 		 }
+		 //===========================================================================
+	 }
+
+	 __declspec(dllexport) void zoom_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g,int D)
+	 {
+		 for (int j = 0; j < h_out; j++)
+		 {
+			 for (int i = 0; i < w_out; i++)
+			 {
+				 for (int k = 0; k < D; k++)
+				 {
+					 double mapping_x = (double)i / ((double)w_out-1) * ((double)w_in-1);
+					 double mapping_y = (double)j / ((double)h_out-1) * ((double)h_in-1);
+					 int x1 = (int)mapping_x;
+					 int y1 = (int)mapping_y;
+					 int x2 = x1 + 1;
+					 int y2 = y1 + 1;
+					 int LU = f[(y1 * w_in + x1) * D + k];//左上
+					 int RU = (x2 == w_in) ? 0 : f[(y1 * w_in + x2) * D + k]; //右上
+					 int LD = (y2 == h_in) ? 0 : f[(y2 * w_in + x1) * D + k]; //左下
+					 int RD = (y2 == h_in|| x2 == w_in) ? 0 : f[(y2 * w_in + x2) * D + k]; //右下
+					 double alpha = mapping_x - x1;
+					 double beta = mapping_y - y1;
+					 g[(j * w_out + i) * D + k] = ((1 - alpha) * LU + alpha * RU) * (1 - beta) + (((1 - alpha) * LD + alpha * RD)) * beta;
+				 }
+			 }
+		 }
+		 
+
+
+
 		 //===========================================================================
 	 }
 

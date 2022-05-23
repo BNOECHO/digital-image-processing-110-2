@@ -450,6 +450,33 @@ namespace DIP
                         }
                 }
 
+                private void zoomToolStripMenuItem_Click(object sender, EventArgs e)
+                {
+                        foreach (Object Mdic in MdiChildren)
+                        {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
+                                if (cF.Focused)
+                                {
+                                        Zoom newform = new Zoom(cF.pBitmap);
+                                        newform.MdiParent = this;
+                                        newform.button1.Click += delegate
+                                        {
+                                                MSForm childForm = new MSForm();
+                                                childForm.pf1 = stStripLabel;
+                                                childForm.pBitmap = (Bitmap)newform.outputPictureBox.Image;
+                                                childForm.MdiParent = this;
+                                                childForm.Show();
+                                        };
+                                        newform.Show();
+                                        break;
+                                }
+                        }
+
+
+                }
+
                 private void fileToolStripMenuItem_Click(object sender, EventArgs e)
                 {
 

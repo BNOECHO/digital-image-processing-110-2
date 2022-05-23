@@ -41,11 +41,12 @@
                         this.verticalFlipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.degreeFlipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.degreeFlipToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-                        this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
-                        this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
                         this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.linearBrightnessTransferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.histogramEqualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
+                        this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+                        this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.statusStrip1.SuspendLayout();
                         this.menuStrip1.SuspendLayout();
                         this.SuspendLayout();
@@ -153,15 +154,12 @@
                         this.degreeFlipToolStripMenuItem1.Text = "270degree flip";
                         this.degreeFlipToolStripMenuItem1.Click += new System.EventHandler(this._270degreeFlipToolStripMenuItem1_Click);
                         // 
-                        // oFileDlg
-                        // 
-                        this.oFileDlg.FileName = "openFileDialog1";
-                        // 
                         // modifyToolStripMenuItem
                         // 
                         this.modifyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.linearBrightnessTransferToolStripMenuItem,
-            this.histogramEqualizationToolStripMenuItem});
+            this.histogramEqualizationToolStripMenuItem,
+            this.zoomToolStripMenuItem});
                         this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
                         this.modifyToolStripMenuItem.Size = new System.Drawing.Size(85, 28);
                         this.modifyToolStripMenuItem.Text = "modify";
@@ -179,6 +177,17 @@
                         this.histogramEqualizationToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
                         this.histogramEqualizationToolStripMenuItem.Text = "Histogram equalization";
                         this.histogramEqualizationToolStripMenuItem.Click += new System.EventHandler(this.histogramEqualizationToolStripMenuItem_Click);
+                        // 
+                        // oFileDlg
+                        // 
+                        this.oFileDlg.FileName = "openFileDialog1";
+                        // 
+                        // zoomToolStripMenuItem
+                        // 
+                        this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
+                        this.zoomToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+                        this.zoomToolStripMenuItem.Text = "zoom";
+                        this.zoomToolStripMenuItem.Click += new System.EventHandler(this.zoomToolStripMenuItem_Click);
                         // 
                         // DIPSample
                         // 
@@ -221,5 +230,6 @@
                 private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem linearBrightnessTransferToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem histogramEqualizationToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem zoomToolStripMenuItem;
         }
 }
