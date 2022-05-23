@@ -1,32 +1,16 @@
 // dip_proc.cpp : 定義 DLL 應用程式的匯出函式。
 //
 #include "pch.h"
-#include "image_lib.h"
-
-
-
+#include <math.h>
+#include<random>
+#include<time.h>
+#include<vector>
+#include<iostream>
+using namespace std;
 extern "C" {
 	//===========================================================================
 	//
 	//===========================================================================
-	 __declspec(dllexport) void encode(int *f,int w,int h,int *g)
-	{
-		int i0,j0;
-		int *b,wb,hb;
-
-		wb=w/4;
-		hb=h/4;
-		b=new int[wb*hb];
-
-		i0=w/4;
-		j0=h/4;
-
-		block_get(f,w,h,b,wb,hb,i0,j0);
-		//contrast(b,wb,hb,1.5);
-		copy(f,w,h,g);
-		block_put(b,wb,hb,g,w,h,i0,j0);
-		//===========================================================================
-	}
 	 __declspec(dllexport) void encode_gray(int* f, int w, int h, int* g,int d)
 	 {
 		 for (int j = 0; j < h; j++)
@@ -215,10 +199,179 @@ extern "C" {
 				 }
 			 }
 		 }
-		 
+		 //===========================================================================
+	 }
 
+	 __declspec(dllexport) void average_filter_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D)
+	 {
+		 double filter[3][3] =
+		 { {1,1,1},
+			 {1,1,1},
+			 {1,1,1} };
+		 for (int j = 0; j < h_out; j++)
+		 {
+			 for (int i = 0; i < w_out; i++)
+			 {
+				 for (int k = 0; k < D; k++)
+				 {
+					 double sum = 0;
+					 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+					 {
+						 sum += f[((j + o) * w_in + (i + p)) * D + k] * filter[o][p];
+					 }
+					 g[(j * w_out + i) * D + k] = sum / 9;
+				 }
+			 }
+		 }
+		 //===========================================================================
+	 }
+	 __declspec(dllexport) void sobel_filter_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D)
+	 {
+		 double filterX[3][3] =
+		 { {1,0,-1},
+			 {2,0,-2},
+			 {1,0,-1} };
+		 double filterY[3][3] =
+		 { {1,2,1},
+			 {0,0,0},
+			 {-1,-2,-1} };
+		 for (int j = 0; j < h_out; j++)
+		 {
+			 for (int i = 0; i < w_out; i++)
+			 {
+				 for (int k = 0; k < D; k++)
+				 {
+					 double sumX = 0;
+					 double sumY = 0;
+					 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+					 {
+						 sumX += f[((j + o) * w_in + (i + p)) * D + k] * filterX[o][p];
+						 sumY += f[((j + o) * w_in + (i + p)) * D + k] * filterY[o][p];
+					 }
+					 g[(j * w_out + i) * D + k] = sqrt(pow(sumX, 2) + pow(sumY, 2));
+				 }
+			 }
+		 }
+		 //===========================================================================
+	 }
 
+	 __declspec(dllexport) void prewitt_filter_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D)
+	 {
+		 double filterX[3][3] =
+		 { {1,0,-1},
+			 {1,0,-1},
+			 {1,0,-1} };
+		 double filterY[3][3] =
+		 { {1,1,1},
+			 {0,0,0},
+			 {-1,-1,-1} };
+		 for (int j = 0; j < h_out; j++)
+		 {
+			 for (int i = 0; i < w_out; i++)
+			 {
+				 for (int k = 0; k < D; k++)
+				 {
+					 double sumX = 0;
+					 double sumY = 0;
+					 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+					 {
+						 sumX += f[((j + o) * w_in + (i + p)) * D + k] * filterX[o][p];
+						 sumY += f[((j + o) * w_in + (i + p)) * D + k] * filterY[o][p];
+					 }
+					 g[(j * w_out + i) * D + k] = sqrt(pow(sumX, 2) + pow(sumY, 2));
+				 }
+			 }
+		 }
+		 //===========================================================================
+	 }
 
+	 __declspec(dllexport) void gaussian_filter_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D)
+	 {
+		 double filter[3][3] =
+		 { {1,2,1},
+			 {2,4,2},
+			 {1,2,1} };
+		 for (int j = 0; j < h_out; j++)
+		 {
+			 for (int i = 0; i < w_out; i++)
+			 {
+				 for (int k = 0; k < D; k++)
+				 {
+					 double sum = 0;
+					 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+					 {
+						 sum += f[((j + o) * w_in + (i + p)) * D + k] * filter[o][p];
+					 }
+					 g[(j * w_out + i) * D + k] = sum / 16;
+				 }
+			 }
+		 }
+		 //===========================================================================
+	 }
+	 __declspec(dllexport) void laplacian_filter_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D)
+	 {
+		 double filter[3][3] =
+		 { {0,1,0},
+			 {1,-4,1},
+			 {0,1,0} };
+		 for (int j = 0; j < h_out; j++)
+		 {
+			 for (int i = 0; i < w_out; i++)
+			 {
+				 for (int k = 0; k < D; k++)
+				 {
+					 double sum = 0;
+					 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+					 {
+						 sum += f[((j + o) * w_in + (i + p)) * D + k] * filter[o][p];
+					 }
+					 g[(j * w_out + i) * D + k] = sum;
+				 }
+			 }
+		 }
+		 //===========================================================================
+	 }
+
+	 __declspec(dllexport) void pepper_noise_process(int* f, int w_in, int h_in, int D)
+	 {
+		 srand(time(NULL));
+		 for (int j = 0; j < h_in; j++)
+		 {
+			 for (int i = 0; i < w_in; i++)
+			 {
+				 double ran = (double)rand() / (double)RAND_MAX;
+				 if (ran < 0.02)
+				 {
+					 int pepper = rand() % 256;
+					 for (int k = 0; k < D; k++)
+					 {
+						 f[(j * w_in + i) * D + k] = pepper;
+					 }
+				 }
+			 }
+		 }
+		 //===========================================================================
+	 }
+	 __declspec(dllexport) void median_filter_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D)
+	 {
+		
+		 for (int j = 0; j < h_out; j++)
+		 {
+			 for (int i = 0; i < w_out; i++)
+			 {
+				 for (int k = 0; k < D; k++)
+				 {
+					 
+					 vector<int> filter;
+					 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+					 {
+						 filter.push_back( f[((j + o) * w_in + (i + p)) * D + k] );
+					 }
+					 sort(filter.begin(), filter.end());
+					 g[(j * w_out + i) * D + k] = filter[4];
+				 }
+			 }
+		 }
 		 //===========================================================================
 	 }
 

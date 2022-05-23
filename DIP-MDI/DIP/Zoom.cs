@@ -61,11 +61,6 @@ namespace DIP
                                 Bitmap preview_bitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette, scaled_Height, scaled_Width);
                                
                                 ChangeImage(outputPictureBox, preview_bitmap);
-
-
-
-
-
                         }
 
                 }

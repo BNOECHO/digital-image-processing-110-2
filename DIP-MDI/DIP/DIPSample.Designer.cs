@@ -44,9 +44,17 @@
                         this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.linearBrightnessTransferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.histogramEqualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
                         this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-                        this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.pepperNoiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.averageFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.sobelFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.prewittFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.gaussianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.laplacianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.medianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.statusStrip1.SuspendLayout();
                         this.menuStrip1.SuspendLayout();
                         this.SuspendLayout();
@@ -75,7 +83,8 @@
                         this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.iPToolStripMenuItem,
-            this.modifyToolStripMenuItem});
+            this.modifyToolStripMenuItem,
+            this.filterToolStripMenuItem});
                         this.menuStrip1.Location = new System.Drawing.Point(0, 0);
                         this.menuStrip1.Name = "menuStrip1";
                         this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
@@ -178,16 +187,79 @@
                         this.histogramEqualizationToolStripMenuItem.Text = "Histogram equalization";
                         this.histogramEqualizationToolStripMenuItem.Click += new System.EventHandler(this.histogramEqualizationToolStripMenuItem_Click);
                         // 
-                        // oFileDlg
-                        // 
-                        this.oFileDlg.FileName = "openFileDialog1";
-                        // 
                         // zoomToolStripMenuItem
                         // 
                         this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
                         this.zoomToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
                         this.zoomToolStripMenuItem.Text = "zoom";
                         this.zoomToolStripMenuItem.Click += new System.EventHandler(this.zoomToolStripMenuItem_Click);
+                        // 
+                        // oFileDlg
+                        // 
+                        this.oFileDlg.FileName = "openFileDialog1";
+                        // 
+                        // filterToolStripMenuItem
+                        // 
+                        this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pepperNoiseToolStripMenuItem,
+            this.averageFilterToolStripMenuItem,
+            this.sobelFilterToolStripMenuItem,
+            this.prewittFilterToolStripMenuItem,
+            this.gaussianFilterToolStripMenuItem,
+            this.laplacianFilterToolStripMenuItem,
+            this.medianFilterToolStripMenuItem});
+                        this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+                        this.filterToolStripMenuItem.Size = new System.Drawing.Size(66, 28);
+                        this.filterToolStripMenuItem.Text = "filter";
+                        // 
+                        // pepperNoiseToolStripMenuItem
+                        // 
+                        this.pepperNoiseToolStripMenuItem.Name = "pepperNoiseToolStripMenuItem";
+                        this.pepperNoiseToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.pepperNoiseToolStripMenuItem.Text = "pepper noise";
+                        this.pepperNoiseToolStripMenuItem.Click += new System.EventHandler(this.pepperNoiseToolStripMenuItem_Click);
+                        // 
+                        // averageFilterToolStripMenuItem
+                        // 
+                        this.averageFilterToolStripMenuItem.Name = "averageFilterToolStripMenuItem";
+                        this.averageFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.averageFilterToolStripMenuItem.Text = "average filter";
+                        this.averageFilterToolStripMenuItem.Click += new System.EventHandler(this.averageFilterToolStripMenuItem_Click);
+                        // 
+                        // sobelFilterToolStripMenuItem
+                        // 
+                        this.sobelFilterToolStripMenuItem.Name = "sobelFilterToolStripMenuItem";
+                        this.sobelFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.sobelFilterToolStripMenuItem.Text = "sobel filter";
+                        this.sobelFilterToolStripMenuItem.Click += new System.EventHandler(this.sobelFilterToolStripMenuItem_Click);
+                        // 
+                        // prewittFilterToolStripMenuItem
+                        // 
+                        this.prewittFilterToolStripMenuItem.Name = "prewittFilterToolStripMenuItem";
+                        this.prewittFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.prewittFilterToolStripMenuItem.Text = "prewitt filter";
+                        this.prewittFilterToolStripMenuItem.Click += new System.EventHandler(this.prewittFilterToolStripMenuItem_Click);
+                        // 
+                        // gaussianFilterToolStripMenuItem
+                        // 
+                        this.gaussianFilterToolStripMenuItem.Name = "gaussianFilterToolStripMenuItem";
+                        this.gaussianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.gaussianFilterToolStripMenuItem.Text = "gaussian filter";
+                        this.gaussianFilterToolStripMenuItem.Click += new System.EventHandler(this.gaussianFilterToolStripMenuItem_Click);
+                        // 
+                        // laplacianFilterToolStripMenuItem
+                        // 
+                        this.laplacianFilterToolStripMenuItem.Name = "laplacianFilterToolStripMenuItem";
+                        this.laplacianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.laplacianFilterToolStripMenuItem.Text = "laplacian filter";
+                        this.laplacianFilterToolStripMenuItem.Click += new System.EventHandler(this.laplacianFilterToolStripMenuItem_Click);
+                        // 
+                        // medianFilterToolStripMenuItem
+                        // 
+                        this.medianFilterToolStripMenuItem.Name = "medianFilterToolStripMenuItem";
+                        this.medianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.medianFilterToolStripMenuItem.Text = "median filter";
+                        this.medianFilterToolStripMenuItem.Click += new System.EventHandler(this.medianFilterToolStripMenuItem_Click);
                         // 
                         // DIPSample
                         // 
@@ -231,5 +303,13 @@
                 private System.Windows.Forms.ToolStripMenuItem linearBrightnessTransferToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem histogramEqualizationToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem zoomToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem pepperNoiseToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem averageFilterToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem sobelFilterToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem prewittFilterToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem gaussianFilterToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem laplacianFilterToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem medianFilterToolStripMenuItem;
         }
 }

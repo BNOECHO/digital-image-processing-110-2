@@ -1,9 +1,16 @@
 ﻿  dip_proc.cpp
-C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(42,15): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
-C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(122,15): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(126,15): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(138,63): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(177,89): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
-C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(187,69): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
-C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(214,81): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(26,15): warning C4244: '正在初始化': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(106,15): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(110,15): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(122,63): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(161,89): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(171,69): warning C4244: '=': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(198,81): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(222,40): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(251,40): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(281,40): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(305,40): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(328,36): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(337,14): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+     正在建立程式庫 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\DIP_proc.lib 和物件 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\DIP_proc.exp
   DIP_proc.vcxproj -> C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\DIP_proc.dll

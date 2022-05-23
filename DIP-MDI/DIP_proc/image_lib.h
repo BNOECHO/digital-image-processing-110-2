@@ -1,11 +1,11 @@
 //===========================================================================
 // some special routines
 //===========================================================================
-inline int round(double s)
+/*inline int round(double s)
 {
 	if(s>=0) s=s+0.5; else s=s-0.5;
 	return((int)s);
-}
+}*/
 
 inline int clip(double s)
 {
