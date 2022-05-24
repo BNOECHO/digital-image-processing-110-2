@@ -45,8 +45,6 @@
                         this.linearBrightnessTransferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.histogramEqualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                        this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
-                        this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
                         this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.pepperNoiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.averageFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +53,9 @@
                         this.gaussianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.laplacianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.medianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
+                        this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+                        this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.statusStrip1.SuspendLayout();
                         this.menuStrip1.SuspendLayout();
                         this.SuspendLayout();
@@ -131,35 +132,35 @@
                         // rGBtoGrayToolStripMenuItem
                         // 
                         this.rGBtoGrayToolStripMenuItem.Name = "rGBtoGrayToolStripMenuItem";
-                        this.rGBtoGrayToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.rGBtoGrayToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.rGBtoGrayToolStripMenuItem.Text = "RGBtoGray";
                         this.rGBtoGrayToolStripMenuItem.Click += new System.EventHandler(this.rGBtoGrayToolStripMenuItem_Click);
                         // 
                         // horizontalFlipToolStripMenuItem
                         // 
                         this.horizontalFlipToolStripMenuItem.Name = "horizontalFlipToolStripMenuItem";
-                        this.horizontalFlipToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.horizontalFlipToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.horizontalFlipToolStripMenuItem.Text = "horizontal flip";
                         this.horizontalFlipToolStripMenuItem.Click += new System.EventHandler(this.horizontalFlipToolStripMenuItem_Click);
                         // 
                         // verticalFlipToolStripMenuItem
                         // 
                         this.verticalFlipToolStripMenuItem.Name = "verticalFlipToolStripMenuItem";
-                        this.verticalFlipToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.verticalFlipToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.verticalFlipToolStripMenuItem.Text = "vertical flip";
                         this.verticalFlipToolStripMenuItem.Click += new System.EventHandler(this.verticalFlipToolStripMenuItem_Click);
                         // 
                         // degreeFlipToolStripMenuItem
                         // 
                         this.degreeFlipToolStripMenuItem.Name = "degreeFlipToolStripMenuItem";
-                        this.degreeFlipToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.degreeFlipToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.degreeFlipToolStripMenuItem.Text = "90degree flip";
                         this.degreeFlipToolStripMenuItem.Click += new System.EventHandler(this._90degreeFlipToolStripMenuItem_Click);
                         // 
                         // degreeFlipToolStripMenuItem1
                         // 
                         this.degreeFlipToolStripMenuItem1.Name = "degreeFlipToolStripMenuItem1";
-                        this.degreeFlipToolStripMenuItem1.Size = new System.Drawing.Size(231, 34);
+                        this.degreeFlipToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
                         this.degreeFlipToolStripMenuItem1.Text = "270degree flip";
                         this.degreeFlipToolStripMenuItem1.Click += new System.EventHandler(this._270degreeFlipToolStripMenuItem1_Click);
                         // 
@@ -168,7 +169,8 @@
                         this.modifyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.linearBrightnessTransferToolStripMenuItem,
             this.histogramEqualizationToolStripMenuItem,
-            this.zoomToolStripMenuItem});
+            this.zoomToolStripMenuItem,
+            this.rotateToolStripMenuItem});
                         this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
                         this.modifyToolStripMenuItem.Size = new System.Drawing.Size(85, 28);
                         this.modifyToolStripMenuItem.Text = "modify";
@@ -193,10 +195,6 @@
                         this.zoomToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
                         this.zoomToolStripMenuItem.Text = "zoom";
                         this.zoomToolStripMenuItem.Click += new System.EventHandler(this.zoomToolStripMenuItem_Click);
-                        // 
-                        // oFileDlg
-                        // 
-                        this.oFileDlg.FileName = "openFileDialog1";
                         // 
                         // filterToolStripMenuItem
                         // 
@@ -261,6 +259,17 @@
                         this.medianFilterToolStripMenuItem.Text = "median filter";
                         this.medianFilterToolStripMenuItem.Click += new System.EventHandler(this.medianFilterToolStripMenuItem_Click);
                         // 
+                        // oFileDlg
+                        // 
+                        this.oFileDlg.FileName = "openFileDialog1";
+                        // 
+                        // rotateToolStripMenuItem
+                        // 
+                        this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
+                        this.rotateToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+                        this.rotateToolStripMenuItem.Text = "rotate";
+                        this.rotateToolStripMenuItem.Click += new System.EventHandler(this.rotateToolStripMenuItem_Click);
+                        // 
                         // DIPSample
                         // 
                         this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -311,5 +320,6 @@
                 private System.Windows.Forms.ToolStripMenuItem gaussianFilterToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem laplacianFilterToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem medianFilterToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
         }
 }

@@ -375,4 +375,64 @@ extern "C" {
 		 //===========================================================================
 	 }
 
+	 __declspec(dllexport) void rotate_process(int* f, int w_in, int h_in, int &w_out, int &h_out, int* g, int D,int degree)
+	 {
+		 double PI = acos(-1);
+		 double theta = (double)degree/180 * PI;
+		 vector<double> Xrotated;
+		 vector<double> Yrotated;
+		 Xrotated.push_back(0);//左上
+		 Xrotated.push_back(w_in *cos(theta)-0* sin(theta));//左下
+		 Xrotated.push_back(w_in * cos(theta) - h_in * sin(theta));//右下
+		 Xrotated.push_back(0 * cos(theta) - h_in * sin(theta));//右上
+		 Yrotated.push_back(0);//左上
+		 Yrotated.push_back(h_in * cos(theta) + 0 * sin(theta));//左下
+		 Yrotated.push_back(h_in * cos(theta) + w_in * sin(theta));//右下
+		 Yrotated.push_back(0 * cos(theta) + w_in * sin(theta));//右上
+		 sort(Xrotated.begin(), Xrotated.end());
+		 sort(Yrotated.begin(), Yrotated.end());
+		 int Xmax = Xrotated[3];
+		 int Xmin = Xrotated[0];
+		 int Ymax = Yrotated[3];
+		 int Ymin = Yrotated[0];
+		 
+		 double SIN = sin(-theta);
+		 double COS = cos(-theta);
+		 w_out = (double)Xrotated[3] - (double)Xrotated[0] ;
+		 h_out = (double)Yrotated[3] - (double)Yrotated[0];
+		 //above correct
+		 for (int j = Ymin; j <= Ymax; j++)
+		 {
+			 for (int i = Xmin; i <= Xmax; i++)
+			 {
+				 double mapping_x = (double)i*COS- (double)j*SIN;
+				 double mapping_y = (double)i*SIN+ (double)j*COS;
+				 int x1 = (int)mapping_x;
+				 int y1 = (int)mapping_y;
+				 int x2 = x1 + 1;
+				 int y2 = y1 + 1;
+
+				 for (int k = 0; k < D; k++)
+				 {
+					 if (x1 >= 0 && x1 < w_in && y1 >= 0 && y1 < h_in)
+					 {
+						 int LU = f[(y1 * w_in + x1) * D + k];//左上
+						 int RU = (x2 == w_in) ? 0 : f[(y1 * w_in + x2) * D + k]; //右上
+						 int LD = (y2 == h_in) ? 0 : f[(y2 * w_in + x1) * D + k]; //左下
+						 int RD = (y2 == h_in || x2 == w_in) ? 0 : f[(y2 * w_in + x2) * D + k]; //右下
+						 double alpha = mapping_x - x1;
+						 double beta = mapping_y - y1;
+						 g[((j - Ymin) * w_out + (i - Xmin)) * D + k] = ((1 - alpha) * LU + alpha * RU) * (1 - beta) + (((1 - alpha) * LD + alpha * RD)) * beta;
+					 }
+					 else g[((j - Ymin) * w_out + (i - Xmin)) * D + k] = 255;
+				 }
+
+			 }
+		 }
+
+		 
+
+		 //===========================================================================
+	 }
+
 }

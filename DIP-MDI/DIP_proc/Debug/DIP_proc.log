@@ -12,5 +12,27 @@ C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_pr
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(305,40): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(328,36): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(337,14): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
-     正在建立程式庫 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\DIP_proc.lib 和物件 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\DIP_proc.exp
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(394,13): warning C4244: '正在初始化': 將 '_Ty' 轉換為 'int'，由於類型不同，可能導致資料遺失
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(395,13): warning C4244: '正在初始化': 將 '_Ty' 轉換為 'int'，由於類型不同，可能導致資料遺失
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(396,13): warning C4244: '正在初始化': 將 '_Ty' 轉換為 'int'，由於類型不同，可能導致資料遺失
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(397,13): warning C4244: '正在初始化': 將 '_Ty' 轉換為 'int'，由於類型不同，可能導致資料遺失
+          with
+          [
+              _Ty=double
+          ]
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(401,32): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(402,32): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(425,100): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
   DIP_proc.vcxproj -> C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\DIP_proc.dll

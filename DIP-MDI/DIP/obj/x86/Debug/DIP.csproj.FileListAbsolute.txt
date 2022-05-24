@@ -124,3 +124,4 @@ C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\ob
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.exe
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.pdb
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.Zoom.resources
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\obj\x86\Debug\DIP.Rotate.resources
