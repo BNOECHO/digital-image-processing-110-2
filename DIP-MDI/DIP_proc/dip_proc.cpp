@@ -5,6 +5,7 @@
 #include<random>
 #include<time.h>
 #include<vector>
+#include<map>
 #include<iostream>
 using namespace std;
 extern "C" {
@@ -331,6 +332,31 @@ extern "C" {
 		 }
 		 //===========================================================================
 	 }
+	 __declspec(dllexport) void sharp_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D)
+	 {
+		 double filter[3][3] =
+		 { {-1,-1,-1},
+			 {-1,9,-1},
+			 {-1,-1,-1} };
+		 for (int j = 0; j < h_out; j++)
+		 {
+			 for (int i = 0; i < w_out; i++)
+			 {
+				 for (int k = 0; k < D; k++)
+				 {
+					 double sum = 0;
+					 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+					 {
+						 sum += f[((j + o) * w_in + (i + p)) * D + k] * filter[o][p];
+					 }
+					 sum = sum > 255 ? 255 : sum;
+					 sum = sum < 0 ? 0 : sum;
+					 g[(j * w_out + i) * D + k] = sum;
+				 }
+			 }
+		 }
+		 //===========================================================================
+	 }
 
 	 __declspec(dllexport) void pepper_noise_process(int* f, int w_in, int h_in, int D)
 	 {
@@ -432,6 +458,70 @@ extern "C" {
 
 		 
 
+		 //===========================================================================
+	 }
+
+	 __declspec(dllexport) void OTSU_process(int* f, int w_in, int h_in, int D)
+	 {
+		 srand(time(NULL));
+
+		 for (int k = 0; k < D; k++)
+		 {
+			 map<int, int> Histogram;
+
+			 for (int i = 0; i < 256; i++) Histogram[i] = 0;
+			 for (int j = 0; j < h_in; j++)
+			 {
+				 for (int i = 0; i < w_in; i++)
+				 {
+					 Histogram[f[(j * w_in + i) * D + k]]++;
+				 }
+			 }
+			 
+			 int threshold = 0;
+			 double maxBetweenClassVariance = 0;
+			 //以下可以優化 改天來做
+			 for (int t = 0; t < 256; t++)
+			 {
+				 int n0=0;
+				 int u0 = 0;
+				 
+				 int n1=0;
+				 int u1 = 0;
+				 for (int i = 0; i < 256; i++)
+				 {
+					 if (i < t)
+					 {
+						 n0 += Histogram[i];
+						 u0 += Histogram[i] * i;
+					 }
+					 else
+					 {
+						 n1 += Histogram[i];
+						 u1 += Histogram[i] * i;
+					 }
+
+					 double BCV = ((double)n0 / (double)(w_in * h_in)) * ((double)n1 / (double)(w_in * h_in)) * pow(u0 - u1, 2);
+					 if (BCV > maxBetweenClassVariance)
+					 {
+						 maxBetweenClassVariance = BCV;
+						 threshold = t;
+					 }
+
+				 }
+			 }
+
+			 for (int j = 0; j < h_in; j++)
+			 {
+				 for (int i = 0; i < w_in; i++)
+				 {
+					 if (f[(j * w_in + i) * D + k] < threshold)f[(j * w_in + i) * D + k] = 0;
+					 else f[(j * w_in + i) * D + k] = 255;
+				 }
+			 }
+
+
+		 }
 		 //===========================================================================
 	 }
 

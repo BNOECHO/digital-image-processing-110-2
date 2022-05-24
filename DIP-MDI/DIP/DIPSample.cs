@@ -43,6 +43,10 @@ namespace DIP
                 unsafe public static extern void pepper_noise_process(int* f, int w_in, int h_in, int D);
                 [DllImport("dip_proc.dll", CallingConvention = CallingConvention.Cdecl)]
                 unsafe public static extern void median_filter_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D);
+
+                [DllImport("dip_proc.dll", CallingConvention = CallingConvention.Cdecl)]
+                unsafe public static extern void sharp_process(int* f, int w_in, int h_in, int w_out, int h_out, int* g, int D);
+                
                 Bitmap NpBitmap;
                 int[] f;
                 int[] g;
@@ -754,6 +758,67 @@ namespace DIP
                                                 MSForm childForm = new MSForm();
                                                 childForm.pf1 = stStripLabel;
                                                 childForm.pBitmap = (Bitmap)newform.outputPictureBox.Image;
+                                                childForm.MdiParent = this;
+                                                childForm.Show();
+                                        };
+                                        newform.Show();
+                                        break;
+                                }
+                        }
+                }
+
+                private void sharpToolStripMenuItem_Click(object sender, EventArgs e)
+                {
+                        int[] f;
+                        int[] g;
+                        int PB_Width = 0;
+                        int PB_Height = 0;
+                        foreach (Object Mdic in MdiChildren)
+                        {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
+                                if (cF.Focused)
+                                {
+                                        int ByteDepth = 0;
+                                        PixelFormat pixelFormat = new PixelFormat();
+                                        ColorPalette palette = null;
+                                        f = dyn_bmp2array(cF.pBitmap, ref ByteDepth, ref pixelFormat, ref palette, ref PB_Width, ref PB_Height);
+                                        g = new int[(PB_Width - 2) * (PB_Height - 2) * ByteDepth];
+                                        unsafe
+                                        {
+                                                fixed (int* f0 = f) fixed (int* g0 = g)
+                                                {
+                                                        sharp_process(f0, PB_Width, PB_Height, (PB_Width - 2), (PB_Height - 2), g0, ByteDepth);
+                                                }
+                                        }
+                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette, PB_Width - 2, PB_Height - 2);
+                                        MSForm childForm = new MSForm();
+                                        childForm.MdiParent = this;
+                                        childForm.pf1 = stStripLabel;
+                                        childForm.pBitmap = NpBitmap;
+                                        childForm.Show();
+                                        break;
+                                }
+                        }
+                }
+
+                private void oTSUToolStripMenuItem_Click(object sender, EventArgs e)
+                {
+                        foreach (Object Mdic in MdiChildren)
+                        {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
+                                if (cF.Focused)
+                                {
+                                        OTSU newform = new OTSU(cF.pBitmap);
+                                        newform.MdiParent = this;
+                                        newform.button1.Click += delegate
+                                        {
+                                                MSForm childForm = new MSForm();
+                                                childForm.pf1 = stStripLabel;
+                                                childForm.pBitmap = (Bitmap)newform.pictureBox2.Image;
                                                 childForm.MdiParent = this;
                                                 childForm.Show();
                                         };
