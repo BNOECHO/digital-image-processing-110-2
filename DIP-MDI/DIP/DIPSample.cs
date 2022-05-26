@@ -10,6 +10,7 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
+
 namespace DIP
 {
         public partial class DIPSample : Form
@@ -51,13 +52,45 @@ namespace DIP
                 int[] f;
                 int[] g;
                 int w, h;
+                public static Color ColorFromHSV(double hue, double saturation, double value)
+                {
+                        hue %= 360;
+                        int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
+                        double f = hue / 60 - Math.Floor(hue / 60);
+
+                        value = value * 255;
+                        int v = Convert.ToInt32(value);
+                        int p = Convert.ToInt32(value * (1 - saturation));
+                        int q = Convert.ToInt32(value * (1 - f * saturation));
+                        int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
+
+                        if (hi == 0)
+                                return Color.FromArgb(255, v, t, p);
+                        else if (hi == 1)
+                                return Color.FromArgb(255, q, v, p);
+                        else if (hi == 2)
+                                return Color.FromArgb(255, p, v, t);
+                        else if (hi == 3)
+                                return Color.FromArgb(255, p, q, v);
+                        else if (hi == 4)
+                                return Color.FromArgb(255, t, p, v);
+                        else
+                                return Color.FromArgb(255, v, p, q);
+                }
 
                 private void DIPSample_Load(object sender, EventArgs e)
                 {
                         this.IsMdiContainer = true;
                         this.WindowState = FormWindowState.Maximized;
                         this.stStripLabel.Text = "";
+
+
+
                 }
+
+               
+
+
 
                 private void openToolStripMenuItem_Click(object sender, EventArgs e)
                 {
@@ -113,7 +146,7 @@ namespace DIP
                                         {
                                                 for (int c = 0; c < ByteDepth; c++)
                                                 {
-                                                        ImgData[(x + byteArray.Height * y) * ByteDepth + c] = (int)*(imgPtr);
+                                                        ImgData[(x + byteArray.Width * y) * ByteDepth + c] = (int)*(imgPtr);
                                                         imgPtr += (int)(byteArray.Stride / myBitmap.Width) / ByteDepth;
                                                 }
                                         }
@@ -125,43 +158,7 @@ namespace DIP
                 }
 
 
-                private static Bitmap dyn_array2bmp(int[] ImgData, int ByteDepth, PixelFormat pixelFormat, ColorPalette palette)
-                {
-                        int Width = (int)Math.Sqrt(ImgData.GetLength(0) / ByteDepth);
-                        int Height = (int)Math.Sqrt(ImgData.GetLength(0) / ByteDepth);
-                        Bitmap myBitmap = new Bitmap(Width, Height, pixelFormat);
-                        BitmapData byteArray = myBitmap.LockBits(new Rectangle(0, 0, Width, Height),
-                                                       ImageLockMode.WriteOnly,
-                                                       pixelFormat);
-                        try
-                        {
-                                myBitmap.Palette = palette;
-                        }
-                        catch
-                        {
-
-                        }
-                        //Padding bytes的長度
-                        int ByteOfSkip = byteArray.Stride - myBitmap.Width * ByteDepth;
-                        unsafe
-                        {                                   // 指標取出影像資料
-                                byte* imgPtr = (byte*)byteArray.Scan0;
-                                for (int y = 0; y < Height; y++)
-                                {
-                                        for (int x = 0; x < Width; x++)
-                                        {
-                                                for (int c = 0; c < ByteDepth; c++)
-                                                {
-                                                        *imgPtr = (byte)ImgData[(x + Width * y) * ByteDepth + c];       //B
-                                                        imgPtr += 1;
-                                                }
-                                        }
-                                        imgPtr += ByteOfSkip; // 跳過Padding bytes
-                                }
-                        }
-                        myBitmap.UnlockBits(byteArray);
-                        return myBitmap;
-                }
+                
 
                 private static Bitmap dyn_array2bmp(int[] ImgData, int ByteDepth, PixelFormat pixelFormat, ColorPalette palette, int width, int height)
                 {
@@ -218,7 +215,7 @@ namespace DIP
                                         PixelFormat pixelFormat = new PixelFormat();
                                         ColorPalette palette = null;
                                         f = dyn_bmp2array(cF.pBitmap, ref ByteDepth, ref pixelFormat, ref palette, ref PB_Width, ref PB_Height);
-                                        g = new int[w * h * ByteDepth];
+                                        g = new int[w * h];
                                         unsafe
                                         {
                                                 fixed (int* f0 = f) fixed (int* g0 = g)
@@ -226,7 +223,11 @@ namespace DIP
                                                         encode_gray(f0, w, h, g0, ByteDepth);
                                                 }
                                         }
-                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette);
+                                        Bitmap temp = new Bitmap(100, 100, PixelFormat.Format8bppIndexed);
+                                        ColorPalette grayscalePalette = temp.Palette;
+                                        for (int i = 0; i < 256; i++) grayscalePalette.Entries[i] = Color.FromArgb(i, i, i);
+
+                                        NpBitmap = dyn_array2bmp(g, 1, PixelFormat.Format8bppIndexed, grayscalePalette,PB_Width,PB_Height);//強行修改為1通道
                                         MSForm childForm = new MSForm();
                                         childForm.MdiParent = this;
                                         childForm.pf1 = stStripLabel;
@@ -828,10 +829,37 @@ namespace DIP
                         }
                 }
 
+                private void connectedcomponentLabelingToolStripMenuItem_Click(object sender, EventArgs e)
+                {
+                        foreach (Object Mdic in MdiChildren)
+                        {
+                                MSForm cF = null;
+                                if (Mdic.GetType() == typeof(MSForm)) cF = (MSForm)Mdic;
+                                else continue;
+                                if (cF.Focused)
+                                {
+                                        Connected_component_labeling newform = new Connected_component_labeling(cF.pBitmap);
+                                        newform.MdiParent = this;
+                                        newform.button1.Click += delegate
+                                        {
+                                                MSForm childForm = new MSForm();
+                                                childForm.pf1 = stStripLabel;
+                                                childForm.pBitmap = (Bitmap)newform.pictureBox2.Image;
+                                                childForm.MdiParent = this;
+                                                childForm.Show();
+                                                newform.Close();
+                                        };
+                                        newform.Show();
+                                        break;
+                                }
+                        }
+                }
+
                 private void fileToolStripMenuItem_Click(object sender, EventArgs e)
                 {
 
                 }
+                
 
         }
 }

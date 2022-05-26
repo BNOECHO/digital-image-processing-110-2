@@ -46,6 +46,7 @@
                         this.histogramEqualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.oTSUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.pepperNoiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.averageFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,10 +55,11 @@
                         this.gaussianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.laplacianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.medianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.sharpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
                         this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-                        this.sharpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                        this.oTSUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.labelingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.connectedcomponentLabelingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.statusStrip1.SuspendLayout();
                         this.menuStrip1.SuspendLayout();
                         this.SuspendLayout();
@@ -87,7 +89,8 @@
             this.fileToolStripMenuItem,
             this.iPToolStripMenuItem,
             this.modifyToolStripMenuItem,
-            this.filterToolStripMenuItem});
+            this.filterToolStripMenuItem,
+            this.labelingToolStripMenuItem});
                         this.menuStrip1.Location = new System.Drawing.Point(0, 0);
                         this.menuStrip1.Name = "menuStrip1";
                         this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
@@ -134,35 +137,35 @@
                         // rGBtoGrayToolStripMenuItem
                         // 
                         this.rGBtoGrayToolStripMenuItem.Name = "rGBtoGrayToolStripMenuItem";
-                        this.rGBtoGrayToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.rGBtoGrayToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.rGBtoGrayToolStripMenuItem.Text = "RGBtoGray";
                         this.rGBtoGrayToolStripMenuItem.Click += new System.EventHandler(this.rGBtoGrayToolStripMenuItem_Click);
                         // 
                         // horizontalFlipToolStripMenuItem
                         // 
                         this.horizontalFlipToolStripMenuItem.Name = "horizontalFlipToolStripMenuItem";
-                        this.horizontalFlipToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.horizontalFlipToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.horizontalFlipToolStripMenuItem.Text = "horizontal flip";
                         this.horizontalFlipToolStripMenuItem.Click += new System.EventHandler(this.horizontalFlipToolStripMenuItem_Click);
                         // 
                         // verticalFlipToolStripMenuItem
                         // 
                         this.verticalFlipToolStripMenuItem.Name = "verticalFlipToolStripMenuItem";
-                        this.verticalFlipToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.verticalFlipToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.verticalFlipToolStripMenuItem.Text = "vertical flip";
                         this.verticalFlipToolStripMenuItem.Click += new System.EventHandler(this.verticalFlipToolStripMenuItem_Click);
                         // 
                         // degreeFlipToolStripMenuItem
                         // 
                         this.degreeFlipToolStripMenuItem.Name = "degreeFlipToolStripMenuItem";
-                        this.degreeFlipToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.degreeFlipToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.degreeFlipToolStripMenuItem.Text = "90degree flip";
                         this.degreeFlipToolStripMenuItem.Click += new System.EventHandler(this._90degreeFlipToolStripMenuItem_Click);
                         // 
                         // degreeFlipToolStripMenuItem1
                         // 
                         this.degreeFlipToolStripMenuItem1.Name = "degreeFlipToolStripMenuItem1";
-                        this.degreeFlipToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+                        this.degreeFlipToolStripMenuItem1.Size = new System.Drawing.Size(231, 34);
                         this.degreeFlipToolStripMenuItem1.Text = "270degree flip";
                         this.degreeFlipToolStripMenuItem1.Click += new System.EventHandler(this._270degreeFlipToolStripMenuItem1_Click);
                         // 
@@ -206,6 +209,13 @@
                         this.rotateToolStripMenuItem.Text = "rotate";
                         this.rotateToolStripMenuItem.Click += new System.EventHandler(this.rotateToolStripMenuItem_Click);
                         // 
+                        // oTSUToolStripMenuItem
+                        // 
+                        this.oTSUToolStripMenuItem.Name = "oTSUToolStripMenuItem";
+                        this.oTSUToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
+                        this.oTSUToolStripMenuItem.Text = "OTSU";
+                        this.oTSUToolStripMenuItem.Click += new System.EventHandler(this.oTSUToolStripMenuItem_Click);
+                        // 
                         // filterToolStripMenuItem
                         // 
                         this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -224,69 +234,77 @@
                         // pepperNoiseToolStripMenuItem
                         // 
                         this.pepperNoiseToolStripMenuItem.Name = "pepperNoiseToolStripMenuItem";
-                        this.pepperNoiseToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.pepperNoiseToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.pepperNoiseToolStripMenuItem.Text = "pepper noise";
                         this.pepperNoiseToolStripMenuItem.Click += new System.EventHandler(this.pepperNoiseToolStripMenuItem_Click);
                         // 
                         // averageFilterToolStripMenuItem
                         // 
                         this.averageFilterToolStripMenuItem.Name = "averageFilterToolStripMenuItem";
-                        this.averageFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.averageFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.averageFilterToolStripMenuItem.Text = "average filter";
                         this.averageFilterToolStripMenuItem.Click += new System.EventHandler(this.averageFilterToolStripMenuItem_Click);
                         // 
                         // sobelFilterToolStripMenuItem
                         // 
                         this.sobelFilterToolStripMenuItem.Name = "sobelFilterToolStripMenuItem";
-                        this.sobelFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.sobelFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.sobelFilterToolStripMenuItem.Text = "sobel filter";
                         this.sobelFilterToolStripMenuItem.Click += new System.EventHandler(this.sobelFilterToolStripMenuItem_Click);
                         // 
                         // prewittFilterToolStripMenuItem
                         // 
                         this.prewittFilterToolStripMenuItem.Name = "prewittFilterToolStripMenuItem";
-                        this.prewittFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.prewittFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.prewittFilterToolStripMenuItem.Text = "prewitt filter";
                         this.prewittFilterToolStripMenuItem.Click += new System.EventHandler(this.prewittFilterToolStripMenuItem_Click);
                         // 
                         // gaussianFilterToolStripMenuItem
                         // 
                         this.gaussianFilterToolStripMenuItem.Name = "gaussianFilterToolStripMenuItem";
-                        this.gaussianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.gaussianFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.gaussianFilterToolStripMenuItem.Text = "gaussian filter";
                         this.gaussianFilterToolStripMenuItem.Click += new System.EventHandler(this.gaussianFilterToolStripMenuItem_Click);
                         // 
                         // laplacianFilterToolStripMenuItem
                         // 
                         this.laplacianFilterToolStripMenuItem.Name = "laplacianFilterToolStripMenuItem";
-                        this.laplacianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.laplacianFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.laplacianFilterToolStripMenuItem.Text = "laplacian filter";
                         this.laplacianFilterToolStripMenuItem.Click += new System.EventHandler(this.laplacianFilterToolStripMenuItem_Click);
                         // 
                         // medianFilterToolStripMenuItem
                         // 
                         this.medianFilterToolStripMenuItem.Name = "medianFilterToolStripMenuItem";
-                        this.medianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.medianFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
                         this.medianFilterToolStripMenuItem.Text = "median filter";
                         this.medianFilterToolStripMenuItem.Click += new System.EventHandler(this.medianFilterToolStripMenuItem_Click);
+                        // 
+                        // sharpToolStripMenuItem
+                        // 
+                        this.sharpToolStripMenuItem.Name = "sharpToolStripMenuItem";
+                        this.sharpToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.sharpToolStripMenuItem.Text = "sharp";
+                        this.sharpToolStripMenuItem.Click += new System.EventHandler(this.sharpToolStripMenuItem_Click);
                         // 
                         // oFileDlg
                         // 
                         this.oFileDlg.FileName = "openFileDialog1";
                         // 
-                        // sharpToolStripMenuItem
+                        // labelingToolStripMenuItem
                         // 
-                        this.sharpToolStripMenuItem.Name = "sharpToolStripMenuItem";
-                        this.sharpToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-                        this.sharpToolStripMenuItem.Text = "sharp";
-                        this.sharpToolStripMenuItem.Click += new System.EventHandler(this.sharpToolStripMenuItem_Click);
+                        this.labelingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectedcomponentLabelingToolStripMenuItem});
+                        this.labelingToolStripMenuItem.Name = "labelingToolStripMenuItem";
+                        this.labelingToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
+                        this.labelingToolStripMenuItem.Text = "labeling";
                         // 
-                        // oTSUToolStripMenuItem
+                        // connectedcomponentLabelingToolStripMenuItem
                         // 
-                        this.oTSUToolStripMenuItem.Name = "oTSUToolStripMenuItem";
-                        this.oTSUToolStripMenuItem.Size = new System.Drawing.Size(323, 34);
-                        this.oTSUToolStripMenuItem.Text = "OTSU";
-                        this.oTSUToolStripMenuItem.Click += new System.EventHandler(this.oTSUToolStripMenuItem_Click);
+                        this.connectedcomponentLabelingToolStripMenuItem.Name = "connectedcomponentLabelingToolStripMenuItem";
+                        this.connectedcomponentLabelingToolStripMenuItem.Size = new System.Drawing.Size(381, 34);
+                        this.connectedcomponentLabelingToolStripMenuItem.Text = "Connected-component labeling";
+                        this.connectedcomponentLabelingToolStripMenuItem.Click += new System.EventHandler(this.connectedcomponentLabelingToolStripMenuItem_Click);
                         // 
                         // DIPSample
                         // 
@@ -341,5 +359,7 @@
                 private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem sharpToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem oTSUToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem labelingToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem connectedcomponentLabelingToolStripMenuItem;
         }
 }

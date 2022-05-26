@@ -58,7 +58,7 @@ namespace DIP
                                                 zoom_process(f0, PB_Width, PB_Height, scaled_Width, scaled_Height, g0, ByteDepth);
                                         }
                                 }
-                                Bitmap preview_bitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette, scaled_Height, scaled_Width);
+                                Bitmap preview_bitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette, scaled_Width,scaled_Height);
                                
                                 ChangeImage(outputPictureBox, preview_bitmap);
                         }

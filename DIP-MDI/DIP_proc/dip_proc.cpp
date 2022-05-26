@@ -6,7 +6,9 @@
 #include<time.h>
 #include<vector>
 #include<map>
+#include<set>
 #include<iostream>
+#include<algorithm>
 using namespace std;
 extern "C" {
 	//===========================================================================
@@ -27,7 +29,7 @@ extern "C" {
 					 int avg = (double)f[(j * w + i) * 3] * 0.144 + (double)f[(j * w + i) * 3 + 1] * 0.587 + (double)f[(j * w + i) * 3 + 2] * 0.299;
 					 for (int k = 0; k < 3; k++)
 					 {
-						 g[(j * w + i) * 3 + k] = avg;
+						 g[(j * w + i)] = avg>255?255:avg;
 					 }
 				 }
 			 }
@@ -500,15 +502,21 @@ extern "C" {
 						 n1 += Histogram[i];
 						 u1 += Histogram[i] * i;
 					 }
-
-					 double BCV = ((double)n0 / (double)(w_in * h_in)) * ((double)n1 / (double)(w_in * h_in)) * pow(u0 - u1, 2);
-					 if (BCV > maxBetweenClassVariance)
-					 {
-						 maxBetweenClassVariance = BCV;
-						 threshold = t;
-					 }
+					 
 
 				 }
+				 if (n0 == 0 || n1 == 0)continue;
+
+				 u0 /= n0;
+				 u1 /= n1;
+
+				 double BCV = ((double)n0 / (double)(w_in * h_in)) * ((double)n1 / (double)(w_in * h_in)) * pow(u0 - u1, 2);
+				 if (BCV > maxBetweenClassVariance)
+				 {
+					 maxBetweenClassVariance = BCV;
+					 threshold = t;
+				 }
+
 			 }
 
 			 for (int j = 0; j < h_in; j++)
@@ -524,5 +532,95 @@ extern "C" {
 		 }
 		 //===========================================================================
 	 }
+	
+
+
+	 __declspec(dllexport) void connected_component_labeling_process(int* f, int w_in, int h_in, int* g,int &count)
+	 {
+		 map<int, set<int>*> mapping;
+		 map<int, int> outputmapping;
+
+		 count = 0;
+		 for (int j = 0; j < h_in; j++)
+		 {
+			 for (int i = 0; i < w_in; i++)
+			 {
+				 g[(j * w_in + i)] = 0;
+				 if (f[(j * w_in + i) ] < 128)f[(j * w_in + i)] = 0;
+				 else f[(j * w_in + i)] = 1;
+			 }
+		 }
+		 int counting=0;
+		 for (int j = 0; j < h_in; j++)
+		 {
+			 for (int i = 0; i < w_in; i++)
+			 {
+
+				 if (f[(j * w_in + i)] == 1)
+				 {
+					 int U = 0, L = 0;
+					 if (j - 1 >= 0 && g[((j - 1) * w_in + i)] != 0)
+					 {
+						 U = g[((j - 1) * w_in + i)];
+					 }
+					 if (i - 1 >= 0 && g[(j  * w_in + (i-1))] != 0)
+					 {
+						 L = g[(j  * w_in + (i-1))];
+					 }
+					 if (L != 0)g[(j * w_in + i)] = L;
+					 if (U != 0)g[(j * w_in + i)] = U;
+					 
+					 if (U == 0 && L == 0) 
+					 {
+						 g[(j * w_in + i)] = ++counting;
+						 mapping[counting] = new set<int>();
+						 mapping[counting]->insert(counting); 
+					 }
+					 if (U != 0 && L != 0 && U != L)
+					 {
+						 mapping[U]->insert(mapping[L]->begin(), mapping[L]->end());
+						 mapping[L] = mapping[U];
+					 }
+
+				 }
+
+			 }
+
+		 }
+
+		 
+
+		 
+
+
+		 for (int i = counting; i > 0; i--)
+		 {
+			 int target = *(mapping[i]->begin());
+			 if (target == i)
+			 {
+				 count++;
+				 outputmapping[i] = count;
+			 }
+
+		 }
+
+		 for (int j = 0; j < h_in; j++)
+		 {
+			 for (int i = 0; i < w_in; i++)
+			 {
+
+				 if (f[(j * w_in + i)] == 1)
+				 {
+					 g[(j * w_in + i)] = outputmapping[*(mapping[g[(j * w_in + i)]]->begin())];
+				 }
+
+			 }
+
+		 }
+
+	 }
+	
+
+
 
 }

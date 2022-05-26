@@ -135,7 +135,7 @@ namespace DIP
                                         {
                                                 for (int c = 0; c < ByteDepth; c++)
                                                 {
-                                                        ImgData[(x + byteArray.Height * y) * ByteDepth + c] = (int)*(imgPtr);
+                                                        ImgData[(x + byteArray.Width * y) * ByteDepth + c] = (int)*(imgPtr);
                                                         imgPtr += (int)(byteArray.Stride / myBitmap.Width) / ByteDepth;
                                                 }
                                         }

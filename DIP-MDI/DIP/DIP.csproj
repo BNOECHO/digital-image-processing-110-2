@@ -80,6 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected_component_labeling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connected_component_labeling.Designer.cs">
+      <DependentUpon>Connected_component_labeling.cs</DependentUpon>
+    </Compile>
     <Compile Include="DIPSample.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Connected_component_labeling.resx">
+      <DependentUpon>Connected_component_labeling.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DIPSample.resx">
       <DependentUpon>DIPSample.cs</DependentUpon>
       <SubType>Designer</SubType>
