@@ -588,11 +588,6 @@ extern "C" {
 
 		 }
 
-		 
-
-		 
-
-
 		 for (int i = counting; i > 0; i--)
 		 {
 			 int target = *(mapping[i]->begin());
@@ -617,6 +612,157 @@ extern "C" {
 			 }
 
 		 }
+
+	 }
+
+	 __declspec(dllexport) void canny_process(int* f, int w_in, int h_in, int* g)
+	 {
+		 double* Gau = new double[(w_in-2) * (h_in-2)];
+		 
+		 double GS = 0;
+		 double filterX[3][3] =
+		 { {1,0,-1},
+			 {2,0,-2},
+			 {1,0,-1} };
+		 double filterY[3][3] =
+		 { {-1,-2,-1},
+			 {0,0,0},
+			 {1,2,1} };
+		 double filter[3][3] =
+		 { {1,2,1},
+			 {2,4,2},
+			 {1,2,1} };
+		 for (int j = 0; j < h_in-2; j++)
+		 {
+			 for (int i = 0; i < w_in-2; i++)
+			 {
+					 double sum = 0;
+					 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+					 {
+						 sum += f[((j + o) * w_in + (i + p)) ] * filter[o][p];
+					 }
+					 Gau[(j * (w_in-2) + i)] = sum / 16;
+					 GS+= sum / 16;
+			 }
+		 }
+		 
+
+		 w_in -= 2;
+		 h_in -= 2;
+		 GS /= (double)(w_in * h_in);
+		 double* I = new double[(w_in - 2) * (h_in - 2)];
+		 double* D = new double[(w_in - 2) * (h_in - 2)];
+		
+
+
+		 for (int j = 0; j < h_in - 2; j++)
+		 {
+			 for (int i = 0; i < w_in - 2; i++)
+			 {
+				 double sumX = 0;
+				 double sumY = 0;
+				 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+				 {
+					 sumX += Gau[((j + o) * (w_in) + (i + p))] * filterX[o][p];
+					 sumY += Gau[((j + o) * (w_in) + (i + p))] * filterY[o][p];
+				 }
+				 I[(j * (w_in - 2) + i)] = sqrt(sumX * sumX + sumY * sumY);
+				 D[(j * (w_in - 2) + i)] = (sumY!=0||sumX!=0)?atan2(sumY, sumX):-999;
+			 }
+		 }
+		  
+		 w_in -= 2;
+		 h_in -= 2;
+
+
+		 for (int j = 1; j < h_in -1 ; j++)
+		 {
+			 for (int i = 1; i < w_in - 1; i++)
+			 {
+				 double degree = (D[(j * (w_in)+i)] * (double)180 / acos(-1)) ;
+				 if (degree > 90)degree -= 180;
+				 if (degree <= -90)degree += 180;
+				 double P0=0, P1=0, P2=0;
+				 P0 = I[(j * (w_in ) + i)];
+				 if (degree > -27.5&&degree<=27.5)
+				 {
+					 P1 = I[((j - 0) * (w_in)+(i + 1))];
+					 P2 = I[((j + 0) * (w_in)+(i - 1))];
+				 }
+				 else if (degree > 27.5 && degree <= 72.5)
+				 {
+					 P1 = I[((j - 1) * (w_in)+(i + 1))];
+					 P2 = I[((j + 1) * (w_in)+(i - 1))];
+				 }
+				 else if (degree > 72.5 && degree <= 90)
+				 {
+					 P1 = I[((j - 1) * (w_in)+(i + 0))];
+					 P2 = I[((j + 1) * (w_in)+(i - 0))];
+				 }
+				 else if (degree > -90 && degree <= -72.5)
+				 {
+					 P1 = I[((j - 1) * (w_in)+(i + 0))];
+					 P2 = I[((j + 1) * (w_in)+(i - 0))];
+				 }
+				 else if (degree > -72.5 && degree <= 27.5)
+				 {
+					 P1 = I[((j - 1) * (w_in)+(i - 1))];
+					 P2 = I[((j + 1) * (w_in)+(i + 1))];
+				 }
+
+				 else
+				 {
+					 I[(j * (w_in)+i)] = 0;
+				 }
+					 
+				 if (P0 < P1 || P0 < P2)
+				 {
+					 I[(j * (w_in)+i)] = 0;
+				 }
+
+
+			 }
+		 }
+		 
+
+		
+
+		 double lowThreshold=GS*0.35, highThreshold=GS*0.7 ;
+		 
+		 for (int j = 1; j < h_in - 1; j++)
+		 {
+			 for (int i = 1; i < w_in - 1; i++)
+			 {
+				 if (I[(j * (w_in)+i)] > highThreshold)I[(j * (w_in)+i)] = 255;
+				 else if (I[(j * (w_in)+i)] < lowThreshold)I[(j * (w_in)+i)] = 0;
+			 }
+		 }
+		 for (int j = 1; j < h_in - 1; j++)
+		 {
+			 for (int i = 1; i < w_in - 1; i++)
+			 {
+				 if (I[(j * (w_in)+i)] == 0)continue;
+				 int HightCount = 0;
+				 for (int o = 0; o < 3; o++)for (int p = 0; p < 3; p++)
+				 {
+					 if (I[((j - 1 + o) * (w_in)+(i - 1 + p))] == 255)HightCount++;
+				 }
+				 if(HightCount>=2)I[(j * (w_in)+i)] = 255;
+				 else I[(j * (w_in)+i)] = 0;
+			 }
+		 }
+		 
+		 w_in -= 2;
+		 h_in -= 2;
+		 for (int j = 0; j < h_in ; j++)
+		 {
+			 for (int i = 0; i < w_in ; i++)
+			 {
+				 g[(j * (w_in)+i)] = I[((j + 1) * (w_in + 2) + (i + 1))];
+			 }
+		 }
+		 
+		
 
 	 }
 	

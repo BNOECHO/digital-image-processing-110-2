@@ -37,4 +37,5 @@ C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_pr
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(430,32): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(453,100): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
 C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(468,14): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP_proc\dip_proc.cpp(761,60): warning C4244: '=': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
   DIP_proc.vcxproj -> C:\Users\BNO ECHO\Documents\GitHub\digital-image-processing-110-2\DIP-MDI\DIP\DIP_proc.dll

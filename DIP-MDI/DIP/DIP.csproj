@@ -80,6 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Canny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Canny.Designer.cs">
+      <DependentUpon>Canny.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connected_component_labeling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Canny.resx">
+      <DependentUpon>Canny.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Connected_component_labeling.resx">
       <DependentUpon>Connected_component_labeling.cs</DependentUpon>
     </EmbeddedResource>

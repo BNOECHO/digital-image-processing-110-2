@@ -56,10 +56,11 @@
                         this.laplacianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.medianFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.sharpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-                        this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
-                        this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
                         this.labelingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.connectedcomponentLabelingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+                        this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
+                        this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+                        this.cannyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                         this.statusStrip1.SuspendLayout();
                         this.menuStrip1.SuspendLayout();
                         this.SuspendLayout();
@@ -226,7 +227,8 @@
             this.gaussianFilterToolStripMenuItem,
             this.laplacianFilterToolStripMenuItem,
             this.medianFilterToolStripMenuItem,
-            this.sharpToolStripMenuItem});
+            this.sharpToolStripMenuItem,
+            this.cannyToolStripMenuItem});
                         this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
                         this.filterToolStripMenuItem.Size = new System.Drawing.Size(66, 28);
                         this.filterToolStripMenuItem.Text = "filter";
@@ -234,62 +236,58 @@
                         // pepperNoiseToolStripMenuItem
                         // 
                         this.pepperNoiseToolStripMenuItem.Name = "pepperNoiseToolStripMenuItem";
-                        this.pepperNoiseToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.pepperNoiseToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.pepperNoiseToolStripMenuItem.Text = "pepper noise";
                         this.pepperNoiseToolStripMenuItem.Click += new System.EventHandler(this.pepperNoiseToolStripMenuItem_Click);
                         // 
                         // averageFilterToolStripMenuItem
                         // 
                         this.averageFilterToolStripMenuItem.Name = "averageFilterToolStripMenuItem";
-                        this.averageFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.averageFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.averageFilterToolStripMenuItem.Text = "average filter";
                         this.averageFilterToolStripMenuItem.Click += new System.EventHandler(this.averageFilterToolStripMenuItem_Click);
                         // 
                         // sobelFilterToolStripMenuItem
                         // 
                         this.sobelFilterToolStripMenuItem.Name = "sobelFilterToolStripMenuItem";
-                        this.sobelFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.sobelFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.sobelFilterToolStripMenuItem.Text = "sobel filter";
                         this.sobelFilterToolStripMenuItem.Click += new System.EventHandler(this.sobelFilterToolStripMenuItem_Click);
                         // 
                         // prewittFilterToolStripMenuItem
                         // 
                         this.prewittFilterToolStripMenuItem.Name = "prewittFilterToolStripMenuItem";
-                        this.prewittFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.prewittFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.prewittFilterToolStripMenuItem.Text = "prewitt filter";
                         this.prewittFilterToolStripMenuItem.Click += new System.EventHandler(this.prewittFilterToolStripMenuItem_Click);
                         // 
                         // gaussianFilterToolStripMenuItem
                         // 
                         this.gaussianFilterToolStripMenuItem.Name = "gaussianFilterToolStripMenuItem";
-                        this.gaussianFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.gaussianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.gaussianFilterToolStripMenuItem.Text = "gaussian filter";
                         this.gaussianFilterToolStripMenuItem.Click += new System.EventHandler(this.gaussianFilterToolStripMenuItem_Click);
                         // 
                         // laplacianFilterToolStripMenuItem
                         // 
                         this.laplacianFilterToolStripMenuItem.Name = "laplacianFilterToolStripMenuItem";
-                        this.laplacianFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.laplacianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.laplacianFilterToolStripMenuItem.Text = "laplacian filter";
                         this.laplacianFilterToolStripMenuItem.Click += new System.EventHandler(this.laplacianFilterToolStripMenuItem_Click);
                         // 
                         // medianFilterToolStripMenuItem
                         // 
                         this.medianFilterToolStripMenuItem.Name = "medianFilterToolStripMenuItem";
-                        this.medianFilterToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.medianFilterToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.medianFilterToolStripMenuItem.Text = "median filter";
                         this.medianFilterToolStripMenuItem.Click += new System.EventHandler(this.medianFilterToolStripMenuItem_Click);
                         // 
                         // sharpToolStripMenuItem
                         // 
                         this.sharpToolStripMenuItem.Name = "sharpToolStripMenuItem";
-                        this.sharpToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+                        this.sharpToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
                         this.sharpToolStripMenuItem.Text = "sharp";
                         this.sharpToolStripMenuItem.Click += new System.EventHandler(this.sharpToolStripMenuItem_Click);
-                        // 
-                        // oFileDlg
-                        // 
-                        this.oFileDlg.FileName = "openFileDialog1";
                         // 
                         // labelingToolStripMenuItem
                         // 
@@ -305,6 +303,17 @@
                         this.connectedcomponentLabelingToolStripMenuItem.Size = new System.Drawing.Size(381, 34);
                         this.connectedcomponentLabelingToolStripMenuItem.Text = "Connected-component labeling";
                         this.connectedcomponentLabelingToolStripMenuItem.Click += new System.EventHandler(this.connectedcomponentLabelingToolStripMenuItem_Click);
+                        // 
+                        // oFileDlg
+                        // 
+                        this.oFileDlg.FileName = "openFileDialog1";
+                        // 
+                        // cannyToolStripMenuItem
+                        // 
+                        this.cannyToolStripMenuItem.Name = "cannyToolStripMenuItem";
+                        this.cannyToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+                        this.cannyToolStripMenuItem.Text = "canny";
+                        this.cannyToolStripMenuItem.Click += new System.EventHandler(this.cannyToolStripMenuItem_Click);
                         // 
                         // DIPSample
                         // 
@@ -361,5 +370,6 @@
                 private System.Windows.Forms.ToolStripMenuItem oTSUToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem labelingToolStripMenuItem;
                 private System.Windows.Forms.ToolStripMenuItem connectedcomponentLabelingToolStripMenuItem;
+                private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem;
         }
 }

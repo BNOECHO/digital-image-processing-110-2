@@ -91,11 +91,6 @@ namespace DIP
                         ChangeImage(pictureBox2, preview_bitmap);
 
 
-
-
-
-
-
                 }
 
                 private static Bitmap dyn_array2bmp(int[] ImgData, int ByteDepth, PixelFormat pixelFormat, ColorPalette palette, int width, int height)
