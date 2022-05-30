@@ -535,9 +535,9 @@ extern "C" {
 	
 
 
-	 __declspec(dllexport) void connected_component_labeling_process(int* f, int w_in, int h_in, int* g,int &count)
+	 __declspec(dllexport) void connected_component_labeling_process(int* f, int w_in, int h_in, int* g,int &count)//連通標記
 	 {
-		 map<int, set<int>*> mapping;
+		 map<int, set<int>*> mapping;//一個map 指向一個set (set指標)
 		 map<int, int> outputmapping;
 
 		 count = 0;
@@ -545,8 +545,8 @@ extern "C" {
 		 {
 			 for (int i = 0; i < w_in; i++)
 			 {
-				 g[(j * w_in + i)] = 0;
-				 if (f[(j * w_in + i) ] < 128)f[(j * w_in + i)] = 0;
+				 g[(j * w_in + i)] = 0;//輸出圖片格式化為0
+				 if (f[(j * w_in + i) ] < 128)f[(j * w_in + i)] = 0;//將圖片格式化為0與1
 				 else f[(j * w_in + i)] = 1;
 			 }
 		 }
@@ -561,25 +561,25 @@ extern "C" {
 					 int U = 0, L = 0;
 					 if (j - 1 >= 0 && g[((j - 1) * w_in + i)] != 0)
 					 {
-						 U = g[((j - 1) * w_in + i)];
+						 U = g[((j - 1) * w_in + i)];//取得上方的標記
 					 }
 					 if (i - 1 >= 0 && g[(j  * w_in + (i-1))] != 0)
 					 {
-						 L = g[(j  * w_in + (i-1))];
+						 L = g[(j  * w_in + (i-1))];//取得左方的標記
 					 }
 					 if (L != 0)g[(j * w_in + i)] = L;
-					 if (U != 0)g[(j * w_in + i)] = U;
+					 if (U != 0)g[(j * w_in + i)] = U;//假如左方與上方都不為0 則優先取得上方
 					 
-					 if (U == 0 && L == 0) 
+					 if (U == 0 && L == 0) //若左方與上方都為0 則建立一個新標記
 					 {
 						 g[(j * w_in + i)] = ++counting;
-						 mapping[counting] = new set<int>();
-						 mapping[counting]->insert(counting); 
+						 mapping[counting] = new set<int>();//建立一個新集合(set)給予新的標記
+						 mapping[counting]->insert(counting); //在集合內加入自身編號
 					 }
-					 if (U != 0 && L != 0 && U != L)
+					 if (U != 0 && L != 0 && U != L)//假設兩端不為0則將兩標記集合在一起並修改指向
 					 {
-						 mapping[U]->insert(mapping[L]->begin(), mapping[L]->end());
-						 mapping[L] = mapping[U];
+						 mapping[U]->insert(mapping[L]->begin(), mapping[L]->end());//將L的set加入至U的SET
+						 mapping[L] = mapping[U];//將L的SET指向至U的SET使其共用
 					 }
 
 				 }
@@ -590,11 +590,11 @@ extern "C" {
 
 		 for (int i = counting; i > 0; i--)
 		 {
-			 int target = *(mapping[i]->begin());
+			 int target = *(mapping[i]->begin());//判斷他是不是該集合內最小的編號
 			 if (target == i)
 			 {
 				 count++;
-				 outputmapping[i] = count;
+				 outputmapping[i] = count;//給予他指向至新的映射編號
 			 }
 
 		 }
@@ -606,7 +606,7 @@ extern "C" {
 
 				 if (f[(j * w_in + i)] == 1)
 				 {
-					 g[(j * w_in + i)] = outputmapping[*(mapping[g[(j * w_in + i)]]->begin())];
+					 g[(j * w_in + i)] = outputmapping[*(mapping[g[(j * w_in + i)]]->begin())];//取得該set內最小的編號 並根據該編號取得映射編號
 				 }
 
 			 }
