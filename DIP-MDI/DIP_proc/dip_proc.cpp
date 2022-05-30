@@ -617,6 +617,7 @@ extern "C" {
 
 	 __declspec(dllexport) void canny_process(int* f, int w_in, int h_in, int* g)
 	 {
+		 //進行高斯模糊
 		 double* Gau = new double[(w_in-2) * (h_in-2)];
 		 
 		 double GS = 0;
@@ -654,7 +655,7 @@ extern "C" {
 		 double* D = new double[(w_in - 2) * (h_in - 2)];
 		
 
-
+		 //進行sobel濾波取得X向及Y向強度與邊緣梯度
 		 for (int j = 0; j < h_in - 2; j++)
 		 {
 			 for (int i = 0; i < w_in - 2; i++)
@@ -666,8 +667,8 @@ extern "C" {
 					 sumX += Gau[((j + o) * (w_in) + (i + p))] * filterX[o][p];
 					 sumY += Gau[((j + o) * (w_in) + (i + p))] * filterY[o][p];
 				 }
-				 I[(j * (w_in - 2) + i)] = sqrt(sumX * sumX + sumY * sumY);
-				 D[(j * (w_in - 2) + i)] = (sumY!=0||sumX!=0)?atan2(sumY, sumX):-999;
+				 I[(j * (w_in - 2) + i)] = sqrt(sumX * sumX + sumY * sumY);//梯度強度
+				 D[(j * (w_in - 2) + i)] = (sumY!=0||sumX!=0)?atan2(sumY, sumX):-999;//梯度方向 避免輸入(0,0)  故出現0,0時直接修改為-999
 			 }
 		 }
 		  
@@ -675,6 +676,7 @@ extern "C" {
 		 h_in -= 2;
 
 
+		 //根據梯度方向刪減邊緣 只保留同方向中的最大值
 		 for (int j = 1; j < h_in -1 ; j++)
 		 {
 			 for (int i = 1; i < w_in - 1; i++)
@@ -684,6 +686,7 @@ extern "C" {
 				 if (degree <= -90)degree += 180;
 				 double P0=0, P1=0, P2=0;
 				 P0 = I[(j * (w_in ) + i)];
+				 //根據角度取得該梯度方向的前後兩點
 				 if (degree > -27.5&&degree<=27.5)
 				 {
 					 P1 = I[((j - 0) * (w_in)+(i + 1))];
@@ -715,7 +718,7 @@ extern "C" {
 					 I[(j * (w_in)+i)] = 0;
 				 }
 					 
-				 if (P0 < P1 || P0 < P2)
+				 if (P0 < P1 || P0 < P2)//若該點不是該方向中的最大值 則為將其歸零 
 				 {
 					 I[(j * (w_in)+i)] = 0;
 				 }
@@ -726,7 +729,7 @@ extern "C" {
 		 
 
 		
-
+		 //設定高低閾值
 		 double lowThreshold=GS*0.35, highThreshold=GS*0.7 ;
 		 
 		 for (int j = 1; j < h_in - 1; j++)
@@ -737,6 +740,7 @@ extern "C" {
 				 else if (I[(j * (w_in)+i)] < lowThreshold)I[(j * (w_in)+i)] = 0;
 			 }
 		 }
+		 //在兩閾值中間的數 如果周邊有兩個(含)以上為高於閾值 則也設為高閾值
 		 for (int j = 1; j < h_in - 1; j++)
 		 {
 			 for (int i = 1; i < w_in - 1; i++)
@@ -752,6 +756,7 @@ extern "C" {
 			 }
 		 }
 		 
+		 //複製到輸出陣列
 		 w_in -= 2;
 		 h_in -= 2;
 		 for (int j = 0; j < h_in ; j++)
