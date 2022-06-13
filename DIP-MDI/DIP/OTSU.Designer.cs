@@ -36,12 +36,18 @@ namespace DIP
                         this.panel2 = new System.Windows.Forms.Panel();
                         this.pictureBox2 = new System.Windows.Forms.PictureBox();
                         this.button1 = new System.Windows.Forms.Button();
+                        this.groupBox3 = new System.Windows.Forms.GroupBox();
+                        this.panel3 = new System.Windows.Forms.Panel();
+                        this.pictureBox3 = new System.Windows.Forms.PictureBox();
                         this.groupBox1.SuspendLayout();
                         this.panel1.SuspendLayout();
                         ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
                         this.groupBox2.SuspendLayout();
                         this.panel2.SuspendLayout();
                         ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+                        this.groupBox3.SuspendLayout();
+                        this.panel3.SuspendLayout();
+                        ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
                         this.SuspendLayout();
                         // 
                         // groupBox1
@@ -102,18 +108,47 @@ namespace DIP
                         // 
                         // button1
                         // 
-                        this.button1.Location = new System.Drawing.Point(331, 424);
+                        this.button1.Location = new System.Drawing.Point(319, 824);
                         this.button1.Name = "button1";
                         this.button1.Size = new System.Drawing.Size(180, 31);
                         this.button1.TabIndex = 2;
                         this.button1.Text = "生成";
                         this.button1.UseVisualStyleBackColor = true;
                         // 
+                        // groupBox3
+                        // 
+                        this.groupBox3.Controls.Add(this.panel3);
+                        this.groupBox3.Location = new System.Drawing.Point(12, 418);
+                        this.groupBox3.Name = "groupBox3";
+                        this.groupBox3.Size = new System.Drawing.Size(400, 400);
+                        this.groupBox3.TabIndex = 1;
+                        this.groupBox3.TabStop = false;
+                        this.groupBox3.Text = "直方圖";
+                        // 
+                        // panel3
+                        // 
+                        this.panel3.AutoScroll = true;
+                        this.panel3.Controls.Add(this.pictureBox3);
+                        this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+                        this.panel3.Location = new System.Drawing.Point(3, 25);
+                        this.panel3.Name = "panel3";
+                        this.panel3.Size = new System.Drawing.Size(394, 372);
+                        this.panel3.TabIndex = 0;
+                        // 
+                        // pictureBox3
+                        // 
+                        this.pictureBox3.Location = new System.Drawing.Point(3, 3);
+                        this.pictureBox3.Name = "pictureBox3";
+                        this.pictureBox3.Size = new System.Drawing.Size(388, 366);
+                        this.pictureBox3.TabIndex = 0;
+                        this.pictureBox3.TabStop = false;
+                        // 
                         // OTSU
                         // 
                         this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
                         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-                        this.ClientSize = new System.Drawing.Size(828, 469);
+                        this.ClientSize = new System.Drawing.Size(828, 860);
+                        this.Controls.Add(this.groupBox3);
                         this.Controls.Add(this.button1);
                         this.Controls.Add(this.groupBox2);
                         this.Controls.Add(this.groupBox1);
@@ -126,6 +161,9 @@ namespace DIP
                         this.groupBox2.ResumeLayout(false);
                         this.panel2.ResumeLayout(false);
                         ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+                        this.groupBox3.ResumeLayout(false);
+                        this.panel3.ResumeLayout(false);
+                        ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
                         this.ResumeLayout(false);
 
                 }
@@ -139,5 +177,8 @@ namespace DIP
                 private System.Windows.Forms.Panel panel2;
                 internal System.Windows.Forms.Button button1;
                 internal System.Windows.Forms.PictureBox pictureBox2;
+                private System.Windows.Forms.GroupBox groupBox3;
+                private System.Windows.Forms.Panel panel3;
+                private System.Windows.Forms.PictureBox pictureBox3;
         }
 }

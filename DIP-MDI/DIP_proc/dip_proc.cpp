@@ -463,7 +463,7 @@ extern "C" {
 		 //===========================================================================
 	 }
 
-	 __declspec(dllexport) void OTSU_process(int* f, int w_in, int h_in, int D)
+	 __declspec(dllexport) void OTSU_process(int* f, int w_in, int h_in, int D,int & Threshold)
 	 {
 		 srand(time(NULL));
 
@@ -527,7 +527,7 @@ extern "C" {
 					 else f[(j * w_in + i) * D + k] = 255;
 				 }
 			 }
-
+			 Threshold = threshold;
 
 		 }
 		 //===========================================================================
