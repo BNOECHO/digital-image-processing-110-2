@@ -45,7 +45,7 @@ namespace DIP
                         ColorPalette palette = null;
                         f = dyn_bmp2array(analyze_Bitmap, ref ByteDepth, ref pixelFormat, ref palette, ref PB_Width, ref PB_Height);
                         g = new int[256* ByteDepth];
-                        cdf = new int[256 * ByteDepth];
+                        cdf = new int[256 * ByteDepth];//累計分布函數
                         unsafe
                         {
                                 fixed (int* f0 = f) fixed (int* g0 = g)

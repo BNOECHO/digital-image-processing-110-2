@@ -299,7 +299,7 @@ namespace DIP
                                                 }
                                         }
 
-                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette, PB_Height, PB_Width);
+                                        NpBitmap = dyn_array2bmp(g, ByteDepth, pixelFormat, palette,  PB_Width,PB_Height);
                                         MSForm childForm = new MSForm();
                                         childForm.MdiParent = this;
                                         childForm.pf1 = stStripLabel;

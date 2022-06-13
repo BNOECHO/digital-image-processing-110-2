@@ -101,7 +101,7 @@ extern "C" {
 	
 	 __declspec(dllexport) void linear_brightness_transfer_process(int* f, int w, int h, int* g, int D, float P1X, float P1Y, float P2X, float P2Y)
 	 {
-		 float transmap[256] = {100};
+		 float transmap[256] = {100};//建立亮度映射
 		 for (int i = 0; i < P1X; i++)
 		 {
 			 transmap[i] = (float)(P1Y * i) / (float)P1X;
@@ -122,14 +122,14 @@ extern "C" {
 			 {
 				 for (int k = 0; k < D; k++)
 				 {
-					 g[(j * w + i) * D + k] = transmap[f[(j * w + i) * D + k]];
+					 g[(j * w + i) * D + k] = transmap[f[(j * w + i) * D + k]];//根據映射表進行亮度置換
 				 }
 			 }
 		 }
 		 //===========================================================================
 	 }
 
-	 __declspec(dllexport) void analyze_Histogram_process(int* f, int w, int h, int* count, int D)
+	 __declspec(dllexport) void analyze_Histogram_process(int* f, int w, int h, int* count, int D)//取得直方圖
 	 {
 		 for (int i = 0; i < 256 * D; i++)count[i] = 0;
 		 for (int j = 0; j < h; j++)
@@ -138,7 +138,7 @@ extern "C" {
 			 {
 				 for (int k = 0; k < D; k++)
 				 {
-					 count[256*k+f[(j * w + i) * D + k]]++;
+					 count[256*k+f[(j * w + i) * D + k]]++;//進行像素數量的統計
 				 }
 			 }
 		 }
@@ -147,12 +147,12 @@ extern "C" {
 
 	 __declspec(dllexport) void analyze_Histogram_image_process(int* f, int w, int h,int*g,int*cdf, int D)
 	 {
-		 float transmap[768] = { 0 };
+		 float transmap[768] = { 0 };//轉置表
 		 int mincdf[3] = {255};
-		 int maxcdf[3] = {w*h};
+		 int maxcdf[3] = {w*h};//最大累積函數為圖片像素量
 		 for (int o = 0; o < D; o++)
 		 {
-			 for (int i = 0; i < 255; i++)if (cdf[o * 256 + i] != 0)
+			 for (int i = 0; i < 255; i++)if (cdf[o * 256 + i] != 0)//找到第一個非0的CDF
 			 {
 				 mincdf[o] = cdf[o * 256 + i];
 				 break;
@@ -161,7 +161,7 @@ extern "C" {
 		 
 		 for(int o=0;o<D;o++)
 		 {
-			 for (int i = 0; i < 255; i++)transmap[o*256+i] = (cdf[o * 256 + i]-mincdf[o]) * 255 / (w * h - mincdf[o]);
+			 for (int i = 0; i < 255; i++)transmap[o*256+i] = (cdf[o * 256 + i]-mincdf[o]) * 255 / (w * h - mincdf[o]);//產生映射表
 		 }
 
 
@@ -186,7 +186,7 @@ extern "C" {
 			 {
 				 for (int k = 0; k < D; k++)
 				 {
-					 double mapping_x = (double)i / ((double)w_out-1) * ((double)w_in-1);
+					 double mapping_x = (double)i / ((double)w_out-1) * ((double)w_in-1);//計算映射回原圖的座標
 					 double mapping_y = (double)j / ((double)h_out-1) * ((double)h_in-1);
 					 int x1 = (int)mapping_x;
 					 int y1 = (int)mapping_y;
@@ -198,7 +198,7 @@ extern "C" {
 					 int RD = (y2 == h_in|| x2 == w_in) ? 0 : f[(y2 * w_in + x2) * D + k]; //右下
 					 double alpha = mapping_x - x1;
 					 double beta = mapping_y - y1;
-					 g[(j * w_out + i) * D + k] = ((1 - alpha) * LU + alpha * RU) * (1 - beta) + (((1 - alpha) * LD + alpha * RD)) * beta;
+					 g[(j * w_out + i) * D + k] = ((1 - alpha) * LU + alpha * RU) * (1 - beta) + (((1 - alpha) * LD + alpha * RD)) * beta;//線性插值
 				 }
 			 }
 		 }
@@ -463,9 +463,9 @@ extern "C" {
 		 //===========================================================================
 	 }
 
-	 __declspec(dllexport) void OTSU_process(int* f, int w_in, int h_in, int D,int & Threshold)
+	 __declspec(dllexport) void OTSU_process(int* f, int w_in, int h_in, int D,int & Threshold)//https://www.796t.com/content/1543921874.html
 	 {
-		 srand(time(NULL));
+
 
 		 for (int k = 0; k < D; k++)
 		 {
@@ -481,7 +481,7 @@ extern "C" {
 			 }
 			 
 			 int threshold = 0;
-			 double maxBetweenClassVariance = 0;
+			 double maxBetweenClassVariance = 0;//最大類間方差
 			 //以下可以優化 改天來做
 			 for (int t = 0; t < 256; t++)
 			 {
@@ -494,8 +494,8 @@ extern "C" {
 				 {
 					 if (i < t)
 					 {
-						 n0 += Histogram[i];
-						 u0 += Histogram[i] * i;
+						 n0 += Histogram[i];//累積數量
+						 u0 += Histogram[i] * i;//累積亮度
 					 }
 					 else
 					 {
@@ -507,10 +507,10 @@ extern "C" {
 				 }
 				 if (n0 == 0 || n1 == 0)continue;
 
-				 u0 /= n0;
+				 u0 /= n0;//平均亮度
 				 u1 /= n1;
 
-				 double BCV = ((double)n0 / (double)(w_in * h_in)) * ((double)n1 / (double)(w_in * h_in)) * pow(u0 - u1, 2);
+				 double BCV = ((double)n0 / (double)(w_in * h_in)) * ((double)n1 / (double)(w_in * h_in)) * pow(u0 - u1, 2);//BCV = 前半所佔的像素比例*後半所佔的像素比例*(前半與後半的平均亮度差)^2 
 				 if (BCV > maxBetweenClassVariance)
 				 {
 					 maxBetweenClassVariance = BCV;
@@ -538,7 +538,7 @@ extern "C" {
 	 __declspec(dllexport) void connected_component_labeling_process(int* f, int w_in, int h_in, int* g,int &count)//連通標記
 	 {
 		 map<int, set<int>*> mapping;//一個map 指向一個set (set指標)
-		 map<int, int> outputmapping;
+		 map<int, int> outputmapping;//輸出映射表
 
 		 count = 0;
 		 for (int j = 0; j < h_in; j++)
@@ -550,7 +550,7 @@ extern "C" {
 				 else f[(j * w_in + i)] = 1;
 			 }
 		 }
-		 int counting=0;
+		 int counting=0;//紀錄當下的標記數
 		 for (int j = 0; j < h_in; j++)
 		 {
 			 for (int i = 0; i < w_in; i++)
@@ -579,7 +579,11 @@ extern "C" {
 					 if (U != 0 && L != 0 && U != L)//假設兩端不為0則將兩標記集合在一起並修改指向
 					 {
 						 mapping[U]->insert(mapping[L]->begin(), mapping[L]->end());//將L的set加入至U的SET
-						 mapping[L] = mapping[U];//將L的SET指向至U的SET使其共用
+						 set<int>* redirect = mapping[L];//取得需要重新指向新set位置的清單
+						 for (auto i : *(redirect))
+						 {
+							 mapping[i] = mapping[U];//將清單內的SET指向至U的SET使其共用
+						 }
 					 }
 
 				 }
@@ -587,6 +591,15 @@ extern "C" {
 			 }
 
 		 }
+
+		 /*
+		L :mapping[4]-> set{4}(ID 4)
+		U :mapping[6]-> set{6}(ID 6)
+
+		 合併後set{4,6}(ID 6)
+		mapping[4]->set{4,6}(ID 6)
+		 mapping[6]-> set{4,6}(ID 6)
+		 */
 
 		 for (int i = counting; i > 0; i--)
 		 {
@@ -633,7 +646,7 @@ extern "C" {
 		 { {1,2,1},
 			 {2,4,2},
 			 {1,2,1} };
-		 for (int j = 0; j < h_in-2; j++)
+		 for (int j = 0; j < h_in-2; j++)//高斯濾波
 		 {
 			 for (int i = 0; i < w_in-2; i++)
 			 {
