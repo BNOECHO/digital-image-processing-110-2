@@ -36,6 +36,7 @@ namespace DIP
                         this.panel2 = new System.Windows.Forms.Panel();
                         this.pictureBox2 = new System.Windows.Forms.PictureBox();
                         this.button1 = new System.Windows.Forms.Button();
+                        this.label1 = new System.Windows.Forms.Label();
                         this.groupBox1.SuspendLayout();
                         this.panel1.SuspendLayout();
                         ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,11 +110,22 @@ namespace DIP
                         this.button1.Text = "生成";
                         this.button1.UseVisualStyleBackColor = true;
                         // 
+                        // label1
+                        // 
+                        this.label1.AutoSize = true;
+                        this.label1.Font = new System.Drawing.Font("新細明體", 9F);
+                        this.label1.Location = new System.Drawing.Point(14, 628);
+                        this.label1.Name = "label1";
+                        this.label1.Size = new System.Drawing.Size(103, 18);
+                        this.label1.TabIndex = 3;
+                        this.label1.Text = "總物件個數:";
+                        // 
                         // Connected_component_labeling
                         // 
                         this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
                         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                         this.ClientSize = new System.Drawing.Size(1233, 669);
+                        this.Controls.Add(this.label1);
                         this.Controls.Add(this.button1);
                         this.Controls.Add(this.groupBox2);
                         this.Controls.Add(this.groupBox1);
@@ -127,6 +139,7 @@ namespace DIP
                         this.panel2.ResumeLayout(false);
                         ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
                         this.ResumeLayout(false);
+                        this.PerformLayout();
 
                 }
 
@@ -139,5 +152,6 @@ namespace DIP
                 private System.Windows.Forms.Panel panel2;
                 internal System.Windows.Forms.Button button1;
                 internal System.Windows.Forms.PictureBox pictureBox2;
+                private System.Windows.Forms.Label label1;
         }
 }

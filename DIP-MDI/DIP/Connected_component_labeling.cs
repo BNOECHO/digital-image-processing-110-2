@@ -90,7 +90,7 @@ namespace DIP
 
                         ChangeImage(pictureBox1, inputBitmap);
                         ChangeImage(pictureBox2, preview_bitmap);
-
+                        label1.Text = "總物件個數:" + connect_count.ToString();
 
                 }
 
