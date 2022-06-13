@@ -86,6 +86,7 @@
     <Compile Include="Canny.Designer.cs">
       <DependentUpon>Canny.cs</DependentUpon>
     </Compile>
+    <Compile Include="bmpTranser.cs" />
     <Compile Include="Connected_component_labeling.cs">
       <SubType>Form</SubType>
     </Compile>
