@@ -171,7 +171,7 @@ extern "C" {
 			 {
 				 for (int k = 0; k < D; k++)
 				 {
-					 g[(j * w + i) * D + k] = transmap[k*256+f[(j * w + i) * D + k]];
+					 g[(j * w + i) * D + k] = transmap[k*256+f[(j * w + i) * D + k]];//根據映射表進行亮度置換
 				 }
 			 }
 		 }
@@ -198,7 +198,7 @@ extern "C" {
 					 int RD = (y2 == h_in|| x2 == w_in) ? 0 : f[(y2 * w_in + x2) * D + k]; //右下
 					 double alpha = mapping_x - x1;
 					 double beta = mapping_y - y1;
-					 g[(j * w_out + i) * D + k] = ((1 - alpha) * LU + alpha * RU) * (1 - beta) + (((1 - alpha) * LD + alpha * RD)) * beta;//線性插值
+					 g[(j * w_out + i) * D + k] = ((1 - alpha) * LU + alpha * RU) * (1 - beta) + (((1 - alpha) * LD + alpha * RD)) * beta;//雙線性插值
 				 }
 			 }
 		 }
