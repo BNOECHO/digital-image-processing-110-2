@@ -58,7 +58,14 @@ namespace DIP
                         {
                                 for (int i = 0; i < 256; i++) G.DrawLine(pen, i, 255, i, 255 - (g[i]*256/gmax));
                                 cdf[0] = g[0];
-                                for (int i = 1; i < 256; i++) cdf[i] = g[i] + cdf[i - 1];
+                                for (int i = 1; i < 256; i++)
+                                {
+                                        cdf[i] = g[i] + cdf[i - 1];
+                                }
+                                for (int i = 1; i < 256; i++)
+                                {
+                                        G.DrawLine(new Pen(Color.Orange),i-1, 255-((float)cdf[i-1] / (float)cdf[255])*255, i, 255 - ((float)cdf[i - 1] / (float)cdf[255]) * 255);
+                                }
                         }
                         if (ByteDepth == 3)
                         {
